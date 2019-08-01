@@ -1,0 +1,72 @@
+[
+  {
+    "label": "Holcomb Reese",
+    "children": [
+      {
+        "label": "Joni Gilliam",
+        "colorType": "green",
+        "iconType": "down"
+      }
+    ]
+  },
+  {
+    "label": "Mcbride Clarke",
+    "children": [
+      {
+        "label": "Ashley Holcomb",
+        "colorType": "black",
+        "iconType": "up"
+      },
+      {
+        "label": "Wilcox Yates",
+        "colorType": "green",
+        "iconType": "down"
+      },
+      {
+        "label": "Tonya Singleton",
+        "colorType": "green",
+        "iconType": "up"
+      }
+    ]
+  },
+  {
+    "label": "Meagan Sweeney",
+    "children": [
+      {
+        "label": "Jordan Gentry",
+        "colorType": "green",
+        "iconType": "down"
+      },
+      {
+        "label": "Travis Lott",
+        "colorType": "black",
+        "iconType": "up"
+      },
+      {
+        "label": "Garner Maddox",
+        "colorType": "green",
+        "iconType": "down"
+      }
+    ]
+  },
+  {
+    "label": "Yolanda Leonard",
+    "children": [
+      {
+        "label": "Patrica Riggs",
+        "colorType": "black",
+        "iconType": "up"
+      },
+      {
+        "label": "Holman Ford",
+        "colorType": "black",
+        "iconType": "down"
+      },
+      {
+        "label": "Rojas Adkins",
+        "colorType": "green",
+        "iconType": "down"
+      }
+    ]
+  }
+]

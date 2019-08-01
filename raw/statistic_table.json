@@ -1,0 +1,50 @@
+{
+  "data": {
+    "groupHeader": [
+      {
+        "label": "Tong Xep Hang",
+        "children": [
+          {
+            "label": "1",
+            "colorType": "black",
+            "iconType": "up/down/''"
+          },
+          {
+            "label": "2",
+            "colorType": "green",
+            "iconType": "up/down/''"
+          }
+        ]
+      }
+    ],
+
+    "groupValue": [
+      {
+        "children": [
+          {
+            "values": [
+              {
+                "rawValue": 100101,
+                "calculatedValue": 20,
+                "colorType": "green",
+                "iconType": "up/down",
+                "unit": "%"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+
+    "roles": [
+      {
+        "title": "Cao Phuong Duc",
+        "isExpand": false,
+        "level": 0,
+        "isShownSeeMore": false,
+        "isBeginning": true,
+        "isFinal": false
+      }
+    ]
+  }
+}
