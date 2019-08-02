@@ -47,12 +47,12 @@ class LeafRow extends PureComponent {
       item.level === 2 ? DEFAULT_CONTAINER_WIDTH + POSITION_RIGHT : DEFAULT_CONTAINER_WIDTH;
 
     return (
-      <View style={{ ...styles.container, ...containerStyle }}>
+      <View style={{ ...styles.container, backgroundColor: backgroundColor, ...containerStyle }}>
         <ConnectedLine
           containerStyle={{ width: connectedLineWidth }}
           lineType={connectedLineType}
         />
-        <View style={{ ...styles.titleContainer, ...backgroundColor }}>
+        <View style={{ ...styles.titleContainer }}>
           <View style={{ flexDirection: 'row' }}>
             <Text style={styles.titleText}>{item.title}</Text>
             {item.isShownSeeMore ? this.renderSeeDetailsButton() : null}
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    paddingLeft: 6
-    // backgroundColor: 'gray',
+    paddingLeft: 6,
+    paddingRight: 36
   },
   titleText: {
     fontFamily: 'HelveticaNeue',

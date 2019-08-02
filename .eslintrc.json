@@ -8,7 +8,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
     "no-use-before-define": "off",
     "react/prop-types": "off",
     "import/no-unresolved": "off",

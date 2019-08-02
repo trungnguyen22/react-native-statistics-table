@@ -3,7 +3,8 @@ import { Text, View, StyleSheet } from 'react-native';
 import {
   DEFAULT_ROW_HEIGHT,
   DEFAULT_VALUE_CELL_WIDTH,
-  DEFAULT_BORDER_WIDTH
+  DEFAULT_BORDER_WIDTH,
+  DEFAULT_BORDER_COLOR
 } from '../../utils/constants';
 import ValueCell from './ValueCell';
 
@@ -30,30 +31,35 @@ import ValueCell from './ValueCell';
 //     {
 //       label: 'Joni Gilliam',
 //       colorType: 'green',
-//       iconType: 'down'
+//       iconType: 'down',
+//       values: [......]
 //     },
 //   ]
 // },
 
 class GroupColumn extends PureComponent {
-  renderChildHeaderTitle = childHeader => (
-    <View style={styles.childHeaderContainer}>
-      <Text style={styles.childHeaderLabel}>{childHeader.label}</Text>
-    </View>
-  );
+  renderChildHeaderTitle = childHeader => {
+    return (
+      <View style={styles.childHeaderContainer}>
+        <Text style={{ ...styles.childHeaderLabel, color: childHeader.colorType }}>
+          {childHeader.label}
+        </Text>
+      </View>
+    );
+  };
 
   renderColumnValue = values => {
     return values.map((cell, index) => {
-      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : 'white';
+      const backgroundColor = index % 2 !== 0 ? '#f5f5f5' : 'white';
       return (
-        <ValueCell containerStyle={{ backgroundColor: backgroundColor }} key={index} cell={cell} />
+        <ValueCell key={index} containerStyle={{ backgroundColor: backgroundColor }} cell={cell} />
       );
     });
   };
 
   renderColumn = eachColumn => {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         {this.renderChildHeaderTitle(eachColumn)}
         {this.renderColumnValue(eachColumn.values)}
       </View>
@@ -78,12 +84,31 @@ class GroupColumn extends PureComponent {
     );
   };
 
+  renderRightPaddingColumn = dataSource => {
+    const fakeArray = Array.from({ length: dataSource.children[0].values.length + 1 });
+    return fakeArray.map((_, index) => {
+      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : 'white';
+      return (
+        <View
+          style={{
+            height: index === 0 ? DEFAULT_ROW_HEIGHT + 0.75 : DEFAULT_ROW_HEIGHT, // workaround
+            width: 17,
+            backgroundColor: backgroundColor
+          }}
+        />
+      );
+    });
+  };
+
   render() {
     const { containerStyle, dataSource } = this.props;
     return (
-      <View style={{ ...styles.container, ...containerStyle }}>
-        {this.renderParentHeaderTitle(dataSource)}
-        {this.renderColumns(dataSource)}
+      <View style={{ flexDirection: 'row' }}>
+        <View style={{ ...styles.container, ...containerStyle }}>
+          {this.renderParentHeaderTitle(dataSource)}
+          {this.renderColumns(dataSource)}
+        </View>
+        <View style={{}}>{this.renderRightPaddingColumn(dataSource)}</View>
       </View>
     );
   }
@@ -95,16 +120,13 @@ const styles = StyleSheet.create({
     borderLeftWidth: DEFAULT_BORDER_WIDTH,
     borderRightWidth: DEFAULT_BORDER_WIDTH,
     borderBottomWidth: DEFAULT_BORDER_WIDTH,
-    borderTopColor: 'gray',
-    borderLeftColor: 'gray',
-    borderRightColor: 'gray',
-    borderBottomColor: 'gray',
-    marginRight: 16
+    borderColor: DEFAULT_BORDER_COLOR
   },
   groupHeaderContainer: {
     height: DEFAULT_ROW_HEIGHT / 2,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white'
   },
   parentHeaderLabel: {
     opacity: 0.6,
@@ -118,10 +140,14 @@ const styles = StyleSheet.create({
     marginRight: 6
   },
   childHeaderContainer: {
+    flex: 1,
     height: DEFAULT_ROW_HEIGHT / 2,
-    alignItems: 'center',
     borderBottomWidth: DEFAULT_BORDER_WIDTH,
-    borderColor: 'gray'
+    borderColor: DEFAULT_BORDER_COLOR,
+    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingLeft: 24,
+    paddingRight: 24
   },
   childHeaderLabel: {
     fontFamily: 'HelveticaNeue',
@@ -130,14 +156,13 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     letterSpacing: 0,
     textAlign: 'center',
-    color: '#39b818',
     paddingLeft: 6,
     paddingRight: 6
   },
   columnContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'stretch'
   }
 });
 

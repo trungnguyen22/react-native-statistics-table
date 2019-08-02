@@ -12,6 +12,7 @@ import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from 'rea
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import RoleColumn from './components/RoleColumn';
 import ValueColumnContainer from './components/ColumnContainer';
+import StatisticsTable from './components/StatisticsTable';
 
 const App = () => {
   return (
@@ -19,12 +20,9 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-          <View style={styles.body}>
-            <ScrollView horizontal>
-              <RoleColumn />
-              <ValueColumnContainer />
-            </ScrollView>
-          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <StatisticsTable />
+          </ScrollView>
         </ScrollView>
       </SafeAreaView>
     </Fragment>
@@ -41,7 +39,6 @@ const styles = StyleSheet.create({
     right: 0
   },
   body: {
-    flex: 1,
     flexDirection: 'row',
     backgroundColor: Colors.white
   },

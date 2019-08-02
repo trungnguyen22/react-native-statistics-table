@@ -3,7 +3,7 @@ export const DUMMY_DATA_GROUP_HEADER = [
     label: 'Group Header 1',
     children: [
       {
-        label: 'Short',
+        label: 'Child 2',
         colorType: 'black',
         iconType: 'up',
         values: [
@@ -94,7 +94,7 @@ export const DUMMY_DATA_GROUP_HEADER = [
         ]
       },
       {
-        label: 'Child Header 3',
+        label: 'Child 2',
         colorType: 'green',
         iconType: 'down',
         values: [
@@ -190,7 +190,7 @@ export const DUMMY_DATA_GROUP_HEADER = [
     label: 'Group Header 2',
     children: [
       {
-        label: 'Child Header 1',
+        label: 'Child 2.1',
         colorType: 'green',
         iconType: 'down',
         values: [

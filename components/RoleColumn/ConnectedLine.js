@@ -142,7 +142,6 @@ class ConnectedLine extends PureComponent {
           </View>
         );
       case 4:
-      case 3:
         return (
           <View
             style={{
@@ -201,7 +200,7 @@ class ConnectedLine extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     width: DEFAULT_CONTAINER_WIDTH,
-    height: DEFAULT_ROW_HEIGHT,
+    height: DEFAULT_ROW_HEIGHT
     // backgroundColor: 'lightblue'
   }
 });
