@@ -4,199 +4,95 @@
       {
         "values": [
           {
-            "rawValue": 1913,
+            "rawValue": 1893,
+            "calculatedValue": 34,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1392,
             "calculatedValue": 77,
             "colorType": "red",
             "iconType": "up",
             "unit": ""
           },
           {
-            "rawValue": 1258,
-            "calculatedValue": 30,
-            "colorType": "red",
+            "rawValue": 1627,
+            "calculatedValue": 37,
+            "colorType": "green",
             "iconType": "down",
             "unit": "%"
           },
           {
-            "rawValue": 1115,
+            "rawValue": 1359,
+            "calculatedValue": 69,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1762,
+            "calculatedValue": 47,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1636,
+            "calculatedValue": 19,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1843,
             "calculatedValue": 36,
             "colorType": "red",
-            "iconType": "up",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1161,
-            "calculatedValue": 42,
-            "colorType": "green",
             "iconType": "down",
             "unit": "%"
           },
           {
-            "rawValue": 1444,
-            "calculatedValue": 27,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": "%"
-          }
-        ]
-      },
-      {
-        "values": [
-          {
-            "rawValue": 1616,
-            "calculatedValue": 32,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1682,
-            "calculatedValue": 26,
-            "colorType": "red",
-            "iconType": "up",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1920,
-            "calculatedValue": 24,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": ""
-          },
-          {
-            "rawValue": 1027,
-            "calculatedValue": 76,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1226,
-            "calculatedValue": 30,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": "%"
-          }
-        ]
-      },
-      {
-        "values": [
-          {
-            "rawValue": 1967,
-            "calculatedValue": 47,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1506,
-            "calculatedValue": 30,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1537,
-            "calculatedValue": 74,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1754,
-            "calculatedValue": 73,
-            "colorType": "red",
-            "iconType": "up",
-            "unit": ""
-          },
-          {
-            "rawValue": 1854,
-            "calculatedValue": 10,
-            "colorType": "red",
-            "iconType": "up",
-            "unit": "%"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "children": [
-      {
-        "values": [
-          {
-            "rawValue": 1230,
-            "calculatedValue": 74,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1956,
-            "calculatedValue": 60,
-            "colorType": "red",
-            "iconType": "up",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1115,
-            "calculatedValue": 61,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1433,
-            "calculatedValue": 45,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1724,
-            "calculatedValue": 54,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          }
-        ]
-      },
-      {
-        "values": [
-          {
-            "rawValue": 1174,
-            "calculatedValue": 23,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1769,
-            "calculatedValue": 73,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1872,
-            "calculatedValue": 61,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1230,
-            "calculatedValue": 59,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1882,
+            "rawValue": 1790,
             "calculatedValue": 39,
             "colorType": "red",
             "iconType": "down",
             "unit": "%"
+          },
+          {
+            "rawValue": 1879,
+            "calculatedValue": 55,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1046,
+            "calculatedValue": 28,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1876,
+            "calculatedValue": 13,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1653,
+            "calculatedValue": 47,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1804,
+            "calculatedValue": 17,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
           }
         ]
       }
@@ -207,116 +103,94 @@
       {
         "values": [
           {
-            "rawValue": 1682,
-            "calculatedValue": 63,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1676,
-            "calculatedValue": 59,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": ""
-          },
-          {
-            "rawValue": 1078,
-            "calculatedValue": 34,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1654,
-            "calculatedValue": 79,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1472,
-            "calculatedValue": 72,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": "%"
-          }
-        ]
-      },
-      {
-        "values": [
-          {
-            "rawValue": 1014,
-            "calculatedValue": 49,
-            "colorType": "red",
-            "iconType": "down",
-            "unit": ""
-          },
-          {
-            "rawValue": 1207,
-            "calculatedValue": 61,
+            "rawValue": 1860,
+            "calculatedValue": 24,
             "colorType": "red",
             "iconType": "up",
             "unit": ""
           },
           {
-            "rawValue": 1080,
-            "calculatedValue": 55,
-            "colorType": "green",
-            "iconType": "up",
-            "unit": ""
-          },
-          {
-            "rawValue": 1116,
+            "rawValue": 1426,
             "calculatedValue": 40,
             "colorType": "red",
             "iconType": "up",
             "unit": ""
           },
           {
-            "rawValue": 1750,
+            "rawValue": 1060,
+            "calculatedValue": 20,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1691,
+            "calculatedValue": 45,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1800,
+            "calculatedValue": 56,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1228,
+            "calculatedValue": 34,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1160,
+            "calculatedValue": 12,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1636,
             "calculatedValue": 49,
             "colorType": "green",
-            "iconType": "down",
-            "unit": ""
-          }
-        ]
-      },
-      {
-        "values": [
-          {
-            "rawValue": 1462,
-            "calculatedValue": 27,
-            "colorType": "red",
             "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1944,
+            "calculatedValue": 11,
+            "colorType": "green",
+            "iconType": "down",
             "unit": ""
           },
           {
-            "rawValue": 1367,
-            "calculatedValue": 46,
+            "rawValue": 1958,
+            "calculatedValue": 67,
             "colorType": "red",
             "iconType": "up",
             "unit": "%"
           },
           {
-            "rawValue": 1976,
-            "calculatedValue": 38,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1769,
-            "calculatedValue": 47,
+            "rawValue": 1467,
+            "calculatedValue": 36,
             "colorType": "red",
-            "iconType": "down",
+            "iconType": "up",
             "unit": "%"
           },
           {
-            "rawValue": 1423,
-            "calculatedValue": 39,
+            "rawValue": 1256,
+            "calculatedValue": 37,
             "colorType": "green",
             "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1693,
+            "calculatedValue": 43,
+            "colorType": "green",
+            "iconType": "down",
             "unit": "%"
           }
         ]
@@ -328,38 +202,672 @@
       {
         "values": [
           {
-            "rawValue": 1891,
-            "calculatedValue": 66,
-            "colorType": "green",
-            "iconType": "down",
-            "unit": "%"
-          },
-          {
-            "rawValue": 1990,
-            "calculatedValue": 77,
+            "rawValue": 1401,
+            "calculatedValue": 28,
             "colorType": "green",
             "iconType": "up",
             "unit": ""
           },
           {
-            "rawValue": 1006,
+            "rawValue": 1630,
+            "calculatedValue": 31,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1242,
+            "calculatedValue": 15,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1580,
+            "calculatedValue": 53,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1953,
+            "calculatedValue": 47,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1880,
+            "calculatedValue": 51,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1657,
+            "calculatedValue": 45,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1355,
+            "calculatedValue": 72,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1464,
+            "calculatedValue": 66,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1247,
+            "calculatedValue": 23,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1010,
+            "calculatedValue": 10,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1612,
+            "calculatedValue": 51,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1524,
+            "calculatedValue": 72,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "rawValue": 1153,
+            "calculatedValue": 57,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1093,
+            "calculatedValue": 67,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1769,
+            "calculatedValue": 70,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1479,
+            "calculatedValue": 72,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1199,
+            "calculatedValue": 19,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1842,
+            "calculatedValue": 29,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1175,
+            "calculatedValue": 55,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1178,
+            "calculatedValue": 55,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1411,
+            "calculatedValue": 19,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1195,
+            "calculatedValue": 61,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1071,
+            "calculatedValue": 67,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1702,
+            "calculatedValue": 31,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1684,
+            "calculatedValue": 49,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "rawValue": 1502,
+            "calculatedValue": 51,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1667,
+            "calculatedValue": 80,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1573,
+            "calculatedValue": 36,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1690,
+            "calculatedValue": 13,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1172,
+            "calculatedValue": 35,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1799,
+            "calculatedValue": 74,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1607,
+            "calculatedValue": 32,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1523,
+            "calculatedValue": 22,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1402,
+            "calculatedValue": 38,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1410,
+            "calculatedValue": 15,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1085,
+            "calculatedValue": 75,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1547,
+            "calculatedValue": 42,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1560,
+            "calculatedValue": 34,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "children": [
+      {
+        "values": [
+          {
+            "rawValue": 1271,
+            "calculatedValue": 14,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1884,
+            "calculatedValue": 32,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1795,
+            "calculatedValue": 51,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1182,
+            "calculatedValue": 16,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1836,
+            "calculatedValue": 57,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1478,
+            "calculatedValue": 63,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1117,
+            "calculatedValue": 45,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1486,
+            "calculatedValue": 40,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1152,
+            "calculatedValue": 46,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1929,
+            "calculatedValue": 42,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1306,
+            "calculatedValue": 53,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1323,
+            "calculatedValue": 20,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1298,
             "calculatedValue": 11,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "rawValue": 1504,
+            "calculatedValue": 22,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1899,
+            "calculatedValue": 59,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1320,
+            "calculatedValue": 13,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1802,
+            "calculatedValue": 44,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1697,
+            "calculatedValue": 68,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1065,
+            "calculatedValue": 23,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1331,
+            "calculatedValue": 76,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1869,
+            "calculatedValue": 55,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1528,
+            "calculatedValue": 19,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1836,
+            "calculatedValue": 32,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1402,
+            "calculatedValue": 75,
             "colorType": "green",
             "iconType": "up",
             "unit": "%"
           },
           {
-            "rawValue": 1844,
-            "calculatedValue": 17,
+            "rawValue": 1357,
+            "calculatedValue": 72,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1274,
+            "calculatedValue": 46,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          }
+        ]
+      },
+      {
+        "values": [
+          {
+            "rawValue": 1644,
+            "calculatedValue": 59,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1638,
+            "calculatedValue": 74,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1437,
+            "calculatedValue": 47,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1167,
+            "calculatedValue": 25,
             "colorType": "green",
             "iconType": "up",
             "unit": "%"
           },
           {
-            "rawValue": 1918,
+            "rawValue": 1274,
+            "calculatedValue": 33,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1208,
+            "calculatedValue": 74,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1758,
+            "calculatedValue": 74,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1192,
+            "calculatedValue": 15,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1364,
+            "calculatedValue": 29,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1819,
+            "calculatedValue": 76,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1369,
+            "calculatedValue": 36,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1318,
+            "calculatedValue": 59,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1778,
+            "calculatedValue": 67,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "children": [
+      {
+        "values": [
+          {
+            "rawValue": 1580,
             "calculatedValue": 10,
             "colorType": "green",
             "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 2000,
+            "calculatedValue": 69,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1386,
+            "calculatedValue": 13,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1231,
+            "calculatedValue": 36,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1365,
+            "calculatedValue": 53,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1826,
+            "calculatedValue": 54,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": ""
+          },
+          {
+            "rawValue": 1277,
+            "calculatedValue": 25,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1772,
+            "calculatedValue": 11,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1543,
+            "calculatedValue": 66,
+            "colorType": "red",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1360,
+            "calculatedValue": 53,
+            "colorType": "green",
+            "iconType": "down",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1004,
+            "calculatedValue": 16,
+            "colorType": "green",
+            "iconType": "up",
+            "unit": "%"
+          },
+          {
+            "rawValue": 1386,
+            "calculatedValue": 54,
+            "colorType": "red",
+            "iconType": "down",
+            "unit": ""
+          },
+          {
+            "rawValue": 1338,
+            "calculatedValue": 41,
+            "colorType": "green",
+            "iconType": "down",
             "unit": ""
           }
         ]

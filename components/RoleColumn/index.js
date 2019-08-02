@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import RootRow from './RootRow';
 import LeafRow from './LeafRow';
+import { DEFAULT_CONTAINER_WIDTH } from './ConnectedLine';
+import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
 
 const DUMMY_DATA_ROLE = [
   {
@@ -106,8 +108,13 @@ const DUMMY_DATA_ROLE = [
 ];
 export class RoleColumn extends PureComponent {
   renderRoleRows = dataSource => {
-    return dataSource.map(item => {
-      return item.level === 0 ? <RootRow item={item} /> : <LeafRow item={item} />;
+    return dataSource.map((item, index) => {
+      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : 'white';
+      return item.level === 0 ? (
+        <RootRow containerStyle={{ backgroundColor: backgroundColor }} item={item} />
+      ) : (
+        <LeafRow containerStyle={{ backgroundColor: backgroundColor }} item={item} />
+      );
     });
   };
 
@@ -121,9 +128,12 @@ export class RoleColumn extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: DEFAULT_ROW_HEIGHT,
     backgroundColor: 'white',
     borderTopWidth: 1,
-    borderTopColor: 'gray'
+    borderBottomWidth: 1,
+    borderTopColor: 'gray',
+    borderBottomColor: 'gray'
   }
 });
 

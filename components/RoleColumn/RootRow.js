@@ -14,27 +14,14 @@ import ConnectedLine from './ConnectedLine';
   },
  */
 
-const VerticalLine = () => (
-  <View
-    style={{
-      position: 'absolute',
-      bottom: 0,
-      left: 6,
-      height: 19,
-      width: 2,
-      backgroundColor: 'blue'
-    }}
-  />
-);
-
 class RootRow extends PureComponent {
   render() {
-    const { item, backgroundColor, containerStyle } = this.props;
+    const { item, containerStyle } = this.props;
     const leftIconImageSource = item.isExpand
       ? require('./img/ic_collapse.png')
       : require('./img/ic_expand.png');
     return (
-      <View style={{ ...styles.container, ...backgroundColor, ...containerStyle }}>
+      <View style={{ ...styles.container, ...containerStyle }}>
         {item.isExpand ? (
           <ConnectedLine
             containerStyle={{ position: 'absolute', left: 0, top: 0, bottom: 0 }}
@@ -58,13 +45,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 36,
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray',
-    // backgroundColor: 'pink',
   },
   titleContainer: {
     alignSelf: 'stretch',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   titleText: {
     marginLeft: 6,

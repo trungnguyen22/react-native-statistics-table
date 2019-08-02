@@ -69,9 +69,7 @@ const styles = StyleSheet.create({
     height: DEFAULT_ROW_HEIGHT,
     maxHeight: DEFAULT_ROW_HEIGHT,
     flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray'
+    alignItems: 'center'
   },
   titleContainer: {
     flex: 1,

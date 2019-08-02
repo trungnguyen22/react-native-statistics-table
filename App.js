@@ -9,23 +9,21 @@
 import React, { Fragment } from 'react';
 import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import RoleColumn from './components/RoleColumn';
+import ValueColumnContainer from './components/ColumnContainer';
 
 const App = () => {
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
           <View style={styles.body}>
-            <RoleColumn />
+            <ScrollView horizontal>
+              <RoleColumn />
+              <ValueColumnContainer />
+            </ScrollView>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -35,13 +33,16 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter
+    flex: 1,
+    backgroundColor: '#f5f5f5'
   },
   engine: {
     position: 'absolute',
     right: 0
   },
   body: {
+    flex: 1,
+    flexDirection: 'row',
     backgroundColor: Colors.white
   },
   sectionContainer: {

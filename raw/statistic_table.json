@@ -1,28 +1,42 @@
 {
   "data": {
-    "groupHeader": [
-      {
-        "label": "Tong Xep Hang",
-        "children": [
-          {
-            "label": "1",
-            "colorType": "black",
-            "iconType": "up/down/''"
-          },
-          {
-            "label": "2",
-            "colorType": "green",
-            "iconType": "up/down/''"
-          }
-        ]
-      }
-    ],
-
     "groupValue": [
       {
+        "label": "Ví Smart Pay",
         "children": [
           {
+            "label": "T.Cong",
+            "colorType": "black",
+            "iconType": "up/down/''",
             "values": [
+              {
+                "rawValue": 100101,
+                "calculatedValue": 20,
+                "colorType": "green",
+                "iconType": "up/down",
+                "unit": "%"
+              },
+              {
+                "rawValue": 100101,
+                "calculatedValue": 20,
+                "colorType": "green",
+                "iconType": "up/down",
+                "unit": "%"
+              }
+            ]
+          },
+          {
+            "label": "T cong",
+            "colorType": "black",
+            "iconType": "up/down/''",
+            "values": [
+              {
+                "rawValue": 100101,
+                "calculatedValue": 20,
+                "colorType": "green",
+                "iconType": "up/down",
+                "unit": "%"
+              },
               {
                 "rawValue": 100101,
                 "calculatedValue": 20,
