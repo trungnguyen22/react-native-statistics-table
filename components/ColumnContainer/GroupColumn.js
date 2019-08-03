@@ -4,7 +4,8 @@ import {
   DEFAULT_ROW_HEIGHT,
   DEFAULT_VALUE_CELL_WIDTH,
   DEFAULT_BORDER_WIDTH,
-  DEFAULT_BORDER_COLOR
+  DEFAULT_BORDER_COLOR,
+  DEFAULT_MIN_ROW_HEIGHT
 } from '../../utils/constants';
 import ValueCell from './ValueCell';
 
@@ -38,9 +39,9 @@ import ValueCell from './ValueCell';
 // },
 
 class GroupColumn extends PureComponent {
-  renderChildHeaderTitle = childHeader => {
+  renderChildHeaderTitle = (rowHeight, childHeader) => {
     return (
-      <View style={styles.childHeaderContainer}>
+      <View style={{ ...styles.childHeaderContainer, height: rowHeight / 2 }}>
         <Text style={{ ...styles.childHeaderLabel, color: childHeader.colorType }}>
           {childHeader.label}
         </Text>
@@ -48,50 +49,55 @@ class GroupColumn extends PureComponent {
     );
   };
 
-  renderColumnValue = values => {
+  renderColumnValue = (rowHeight, values) => {
     return values.map((cell, index) => {
       const backgroundColor = index % 2 !== 0 ? '#f5f5f5' : 'white';
       return (
-        <ValueCell key={index} containerStyle={{ backgroundColor: backgroundColor }} cell={cell} />
+        <ValueCell
+          key={index}
+          rowHeight={rowHeight}
+          containerStyle={{ backgroundColor: backgroundColor }}
+          cell={cell}
+        />
       );
     });
   };
 
-  renderColumn = eachColumn => {
+  renderColumn = (rowHeight, eachColumn) => {
     return (
       <View style={{ flex: 1 }}>
-        {this.renderChildHeaderTitle(eachColumn)}
-        {this.renderColumnValue(eachColumn.values)}
+        {this.renderChildHeaderTitle(rowHeight, eachColumn)}
+        {this.renderColumnValue(rowHeight, eachColumn.values)}
       </View>
     );
   };
 
-  renderColumns = dataSource => {
+  renderColumns = (rowHeight, dataSource) => {
     return (
       <View style={styles.columnContainer}>
         {dataSource.children.map(column => {
-          return this.renderColumn(column);
+          return this.renderColumn(rowHeight, column);
         })}
       </View>
     );
   };
 
-  renderParentHeaderTitle = dataSource => {
+  renderParentHeaderTitle = (rowHeight, dataSource) => {
     return (
-      <View style={styles.groupHeaderContainer}>
+      <View style={{ ...styles.groupHeaderContainer, height: rowHeight / 2 }}>
         <Text style={styles.parentHeaderLabel}>{dataSource.label}</Text>
       </View>
     );
   };
 
-  renderRightPaddingColumn = dataSource => {
+  renderRightPaddingColumn = (rowHeight, dataSource) => {
     const fakeArray = Array.from({ length: dataSource.children[0].values.length + 1 });
     return fakeArray.map((_, index) => {
-      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : 'white';
+      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : '#ffffff';
       return (
         <View
           style={{
-            height: index === 0 ? DEFAULT_ROW_HEIGHT + 0.75 : DEFAULT_ROW_HEIGHT, // workaround
+            height: index === 0 ? rowHeight + 0.75 : rowHeight, // workaround
             width: 17,
             backgroundColor: backgroundColor
           }}
@@ -101,14 +107,14 @@ class GroupColumn extends PureComponent {
   };
 
   render() {
-    const { containerStyle, dataSource } = this.props;
+    const { rowHeight, containerStyle, dataSource } = this.props;
     return (
       <View style={{ flexDirection: 'row' }}>
         <View style={{ ...styles.container, ...containerStyle }}>
-          {this.renderParentHeaderTitle(dataSource)}
-          {this.renderColumns(dataSource)}
+          {this.renderParentHeaderTitle(rowHeight, dataSource)}
+          {this.renderColumns(rowHeight, dataSource)}
         </View>
-        <View style={{}}>{this.renderRightPaddingColumn(dataSource)}</View>
+        <View style={{}}>{this.renderRightPaddingColumn(rowHeight, dataSource)}</View>
       </View>
     );
   }
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
     borderColor: DEFAULT_BORDER_COLOR
   },
   groupHeaderContainer: {
-    height: DEFAULT_ROW_HEIGHT / 2,
+    minHeight: DEFAULT_MIN_ROW_HEIGHT / 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white'
@@ -141,9 +147,10 @@ const styles = StyleSheet.create({
   },
   childHeaderContainer: {
     flex: 1,
-    height: DEFAULT_ROW_HEIGHT / 2,
+    minHeight: DEFAULT_MIN_ROW_HEIGHT / 2,
     borderBottomWidth: DEFAULT_BORDER_WIDTH,
     borderColor: DEFAULT_BORDER_COLOR,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
     paddingLeft: 24,

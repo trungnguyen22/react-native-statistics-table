@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
-import { DEFAULT_CONTAINER_WIDTH } from '../RoleColumn/ConnectedLine';
-import {
-  DEFAULT_ROW_HEIGHT,
-  DEFAULT_VALUE_CELL_WIDTH,
-  DEFAULT_BORDER_WIDTH
-} from '../../utils/constants';
+import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
 
 // item
 // {
@@ -18,13 +13,13 @@ import {
 
 class ValueCell extends PureComponent {
   render() {
-    const { containerStyle, cell } = this.props;
+    const { rowHeight, containerStyle, cell } = this.props;
     const iconImageSource =
       cell.iconType === 'down'
         ? require('./img/ic_arrow_down.png')
         : require('./img/ic_arrow_up.png');
     return (
-      <View style={{ ...styles.container, ...containerStyle }}>
+      <View style={{ ...styles.container, height: rowHeight, ...containerStyle }}>
         <Text style={styles.rawValueText}>{cell.rawValue}</Text>
         <View style={{ flexDirection: 'row' }}>
           <Image source={iconImageSource} />
@@ -39,7 +34,7 @@ class ValueCell extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    height: DEFAULT_ROW_HEIGHT,
+    minHeight: DEFAULT_MIN_ROW_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: 6,

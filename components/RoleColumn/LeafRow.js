@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
+import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
 import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './ConnectedLine';
 
 /**
@@ -40,15 +40,23 @@ class LeafRow extends PureComponent {
   };
 
   render() {
-    const { containerStyle, backgroundColor, item } = this.props;
+    const { containerStyle, rowHeight, backgroundColor, item } = this.props;
 
     const connectedLineType = this.getConnectedLineType(item);
     const connectedLineWidth =
       item.level === 2 ? DEFAULT_CONTAINER_WIDTH + DEFAULT_PADDING : DEFAULT_CONTAINER_WIDTH;
 
     return (
-      <View style={{ ...styles.container, backgroundColor: backgroundColor, ...containerStyle }}>
+      <View
+        style={{
+          ...styles.container,
+          ...containerStyle,
+          height: rowHeight,
+          backgroundColor: backgroundColor
+        }}
+      >
         <ConnectedLine
+          rowHeight={rowHeight}
           containerStyle={{ width: connectedLineWidth }}
           lineType={connectedLineType}
         />
@@ -66,8 +74,7 @@ class LeafRow extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: DEFAULT_ROW_HEIGHT,
-    maxHeight: DEFAULT_ROW_HEIGHT,
+    minHeight: DEFAULT_MIN_ROW_HEIGHT,
     flexDirection: 'row',
     alignItems: 'center'
   },

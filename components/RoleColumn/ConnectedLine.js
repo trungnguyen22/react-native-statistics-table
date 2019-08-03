@@ -1,13 +1,16 @@
 /* eslint-disable default-case */
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
+import { View, StyleSheet } from 'react-native';
+import {
+  DEFAULT_ROW_HEIGHT,
+  DEFAULT_LINE_COLOR,
+  DEFAULT_MIN_ROW_HEIGHT
+} from '../../utils/constants';
 
 export const DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE = 12;
 export const DEFAULT_PADDING = 20;
 export const DEFAULT_CONTAINER_WIDTH = 80;
 
-const DEFAULT_LINE_COLOR = '#233a95';
 const DEFAULT_VERTICAL_LINE_WIDTH = 2;
 const DEFAULT_HORIZONTAL_LINE_HEIGHT = 2;
 
@@ -38,7 +41,7 @@ const AbsoluteHorizontalLine = ({ style }) => (
 );
 
 class ConnectedLine extends PureComponent {
-  renderConnectedLine = lineType => {
+  renderConnectedLine = (lineType, rowHeight) => {
     switch (lineType) {
       case 0:
         return (
@@ -46,7 +49,7 @@ class ConnectedLine extends PureComponent {
             style={{
               bottom: 0,
               right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
-              height: DEFAULT_ROW_HEIGHT / 2 - 10
+              height: rowHeight / 2 - 10
             }}
           />
         );
@@ -56,12 +59,12 @@ class ConnectedLine extends PureComponent {
             <AbsoluteVerticalLine
               style={{
                 right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
-                height: DEFAULT_ROW_HEIGHT
+                height: rowHeight
               }}
             />
             <AbsoluteHorizontalLine
               style={{
-                top: DEFAULT_ROW_HEIGHT / 2.125,
+                top: rowHeight / 2.125,
                 right: 0,
                 width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE
               }}
@@ -80,7 +83,7 @@ class ConnectedLine extends PureComponent {
             />
             <AbsoluteHorizontalLine
               style={{
-                top: DEFAULT_ROW_HEIGHT / 2,
+                top: rowHeight / 2,
                 right: 0,
                 width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + DEFAULT_PADDING
               }}
@@ -89,7 +92,7 @@ class ConnectedLine extends PureComponent {
               style={{
                 bottom: 0,
                 right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
-                height: DEFAULT_ROW_HEIGHT / 2
+                height: rowHeight / 2
               }}
             />
           </View>
@@ -106,7 +109,7 @@ class ConnectedLine extends PureComponent {
             />
             <AbsoluteHorizontalLine
               style={{
-                top: DEFAULT_ROW_HEIGHT / 2.125,
+                top: rowHeight / 2.125,
                 right: 0,
                 width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE
               }}
@@ -114,7 +117,7 @@ class ConnectedLine extends PureComponent {
             <AbsoluteVerticalLine
               style={{
                 right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
-                height: DEFAULT_ROW_HEIGHT
+                height: rowHeight
               }}
             />
           </View>
@@ -127,13 +130,13 @@ class ConnectedLine extends PureComponent {
                 position: 'absolute',
                 bottom: 0,
                 right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + DEFAULT_PADDING,
-                height: DEFAULT_ROW_HEIGHT
+                height: rowHeight
               }}
             />
             <AbsoluteHorizontalLine
               style={{
                 position: 'absolute',
-                top: DEFAULT_ROW_HEIGHT / 2,
+                top: rowHeight / 2,
                 right: 0,
                 width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + 2
               }}
@@ -143,7 +146,7 @@ class ConnectedLine extends PureComponent {
                 position: 'absolute',
                 top: 0,
                 right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
-                height: DEFAULT_ROW_HEIGHT / 2
+                height: rowHeight / 2
               }}
             />
           </View>
@@ -152,10 +155,10 @@ class ConnectedLine extends PureComponent {
   };
 
   render() {
-    const { containerStyle, lineType = 0 } = this.props;
+    const { rowHeight, containerStyle, lineType = 0 } = this.props;
     return (
-      <View style={{ ...styles.container, ...containerStyle }}>
-        {this.renderConnectedLine(lineType)}
+      <View style={{ ...styles.container, ...containerStyle, height: rowHeight }}>
+        {this.renderConnectedLine(lineType, rowHeight)}
       </View>
     );
   }
@@ -164,7 +167,7 @@ class ConnectedLine extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     width: DEFAULT_CONTAINER_WIDTH,
-    height: DEFAULT_ROW_HEIGHT
+    minHeight: DEFAULT_MIN_ROW_HEIGHT
   },
   lineContainer: {
     position: 'absolute',

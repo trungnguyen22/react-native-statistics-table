@@ -1,3 +1,195 @@
+export const DUMMY_DATA_ROLE = [
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: true,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: true,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: true,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'DSA',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  // Beginning Level 2
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  // Final Level 2
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: true
+  },
+  // Demo 2
+  {
+    title: 'Joanna Leon',
+    isExpand: true,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: true,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: true,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'DSA',
+    isExpand: false,
+    level: 1,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  // Beginning Level 2
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  // Final Level 2
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: true
+  },
+  {
+    title: 'Newton Waller',
+    isExpand: false,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Simpson Herman',
+    isExpand: false,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Simpson Herman',
+    isExpand: false,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Simpson Herman',
+    isExpand: false,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  },
+  {
+    title: 'Simpson Herman',
+    isExpand: false,
+    level: 0,
+    isShownSeeMore: false,
+    isBeginning: true,
+    isFinal: false
+  }
+];
+
 export const DUMMY_DATA_GROUP_HEADER = [
   {
     label: 'Group Header 1',

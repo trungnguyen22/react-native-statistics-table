@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
-import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
+import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
 import ConnectedLine from './ConnectedLine';
 
 /**
@@ -16,14 +16,22 @@ import ConnectedLine from './ConnectedLine';
 
 class RootRow extends PureComponent {
   render() {
-    const { item, backgroundColor, containerStyle } = this.props;
+    const { item, rowHeight, backgroundColor, containerStyle } = this.props;
     const leftIconImageSource = item.isExpand
       ? require('./img/ic_collapse.png')
       : require('./img/ic_expand.png');
     return (
-      <View style={{ ...styles.container, ...containerStyle, backgroundColor: backgroundColor }}>
+      <View
+        style={{
+          ...styles.container,
+          ...containerStyle,
+          height: rowHeight,
+          backgroundColor: backgroundColor
+        }}
+      >
         {item.isExpand ? (
           <ConnectedLine
+            rowHeight={rowHeight}
             containerStyle={{ position: 'absolute', left: 0, top: 0, bottom: 0 }}
             lineType={0}
           />
@@ -40,8 +48,7 @@ class RootRow extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: DEFAULT_ROW_HEIGHT,
-    maxHeight: DEFAULT_ROW_HEIGHT,
+    minHeight: DEFAULT_MIN_ROW_HEIGHT,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 36
