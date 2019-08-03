@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
-import ConnectedLine, { POSITION_RIGHT, DEFAULT_CONTAINER_WIDTH } from './ConnectedLine';
+import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './ConnectedLine';
 
 /**
  {
@@ -44,7 +44,7 @@ class LeafRow extends PureComponent {
 
     const connectedLineType = this.getConnectedLineType(item);
     const connectedLineWidth =
-      item.level === 2 ? DEFAULT_CONTAINER_WIDTH + POSITION_RIGHT : DEFAULT_CONTAINER_WIDTH;
+      item.level === 2 ? DEFAULT_CONTAINER_WIDTH + DEFAULT_PADDING : DEFAULT_CONTAINER_WIDTH;
 
     return (
       <View style={{ ...styles.container, backgroundColor: backgroundColor, ...containerStyle }}>

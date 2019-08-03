@@ -1,185 +1,149 @@
+/* eslint-disable default-case */
 import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { DEFAULT_ROW_HEIGHT } from '../../utils/constants';
 
-export const POSITION_RIGHT = 12;
+export const DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE = 12;
+export const DEFAULT_PADDING = 20;
 export const DEFAULT_CONTAINER_WIDTH = 80;
+
+const DEFAULT_LINE_COLOR = '#233a95';
+const DEFAULT_VERTICAL_LINE_WIDTH = 2;
+const DEFAULT_HORIZONTAL_LINE_HEIGHT = 2;
+
+const AbsoluteVerticalLine = ({ style }) => (
+  <View
+    style={[
+      style,
+      {
+        position: 'absolute',
+        width: DEFAULT_VERTICAL_LINE_WIDTH,
+        backgroundColor: DEFAULT_LINE_COLOR
+      }
+    ]}
+  />
+);
+
+const AbsoluteHorizontalLine = ({ style }) => (
+  <View
+    style={[
+      style,
+      {
+        position: 'absolute',
+        height: DEFAULT_HORIZONTAL_LINE_HEIGHT,
+        backgroundColor: DEFAULT_LINE_COLOR
+      }
+    ]}
+  />
+);
 
 class ConnectedLine extends PureComponent {
   renderConnectedLine = lineType => {
     switch (lineType) {
       case 0:
         return (
-          <View
+          <AbsoluteVerticalLine
             style={{
-              position: 'absolute',
               bottom: 0,
-              right: POSITION_RIGHT,
-              height: 19,
-              width: 2,
-              backgroundColor: '#233a95'
+              right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+              height: DEFAULT_ROW_HEIGHT / 2 - 10
             }}
           />
         );
-      case 1:
+      case 1: // |-
         return (
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              height: '100%',
-              width: '100%'
-            }}
-          >
-            <View
+          <View style={styles.lineContainer}>
+            <AbsoluteVerticalLine
               style={{
-                position: 'absolute',
-                bottom: 0,
-                right: POSITION_RIGHT,
-                height: '100%',
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+                height: DEFAULT_ROW_HEIGHT
               }}
             />
-
-            <View
+            <AbsoluteHorizontalLine
               style={{
-                position: 'absolute',
                 top: DEFAULT_ROW_HEIGHT / 2.125,
                 right: 0,
-                height: 2,
-                width: 12,
-                backgroundColor: '#233a95'
+                width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE
               }}
             />
           </View>
         );
-      case 2:
+      case 2: // |T
         return (
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              height: '100%',
-              width: '100%'
-            }}
-          >
-            <View
+          <View style={styles.lineContainer}>
+            <AbsoluteVerticalLine
               style={{
-                position: 'absolute',
                 bottom: 0,
-                right: POSITION_RIGHT * 2,
-                height: '100%',
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + DEFAULT_PADDING,
+                height: '100%'
               }}
             />
-            <View
+            <AbsoluteHorizontalLine
               style={{
-                position: 'absolute',
-                top: DEFAULT_ROW_HEIGHT / 2.125,
+                top: DEFAULT_ROW_HEIGHT / 2,
                 right: 0,
-                height: 2,
-                width: POSITION_RIGHT * 2,
-                backgroundColor: '#233a95'
+                width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + DEFAULT_PADDING
               }}
             />
-            <View
+            <AbsoluteVerticalLine
               style={{
-                position: 'absolute',
                 bottom: 0,
-                right: POSITION_RIGHT,
-                height: DEFAULT_CONTAINER_WIDTH / 2.5,
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+                height: DEFAULT_ROW_HEIGHT / 2
               }}
             />
           </View>
         );
-      case 3:
+      case 3: // | |-
         return (
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              height: '100%',
-              width: '100%'
-            }}
-          >
-            <View
+          <View style={styles.lineContainer}>
+            <AbsoluteVerticalLine
               style={{
-                position: 'absolute',
                 bottom: 0,
-                right: POSITION_RIGHT * 2,
-                height: '100%',
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + 20,
+                height: '100%'
               }}
             />
-            <View
+            <AbsoluteHorizontalLine
               style={{
-                position: 'absolute',
                 top: DEFAULT_ROW_HEIGHT / 2.125,
                 right: 0,
-                height: 2,
-                width: POSITION_RIGHT,
-                backgroundColor: '#233a95'
+                width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE
               }}
             />
-            <View
+            <AbsoluteVerticalLine
               style={{
-                position: 'absolute',
-                bottom: 0,
-                right: POSITION_RIGHT,
-                height: DEFAULT_CONTAINER_WIDTH,
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+                height: DEFAULT_ROW_HEIGHT
               }}
             />
           </View>
         );
-      case 4:
+      case 4: // | L
         return (
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              height: '100%',
-              width: '100%'
-            }}
-          >
-            <View
+          <View style={styles.lineContainer}>
+            <AbsoluteVerticalLine
               style={{
                 position: 'absolute',
                 bottom: 0,
-                right: POSITION_RIGHT * 2,
-                height: '100%',
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + DEFAULT_PADDING,
+                height: DEFAULT_ROW_HEIGHT
               }}
             />
-            <View
+            <AbsoluteHorizontalLine
               style={{
                 position: 'absolute',
-                top: DEFAULT_ROW_HEIGHT / 2.125,
+                top: DEFAULT_ROW_HEIGHT / 2,
                 right: 0,
-                height: 2,
-                width: POSITION_RIGHT,
-                backgroundColor: '#233a95'
+                width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE + 2
               }}
             />
-            <View
+            <AbsoluteVerticalLine
               style={{
                 position: 'absolute',
                 top: 0,
-                right: POSITION_RIGHT,
-                height: DEFAULT_CONTAINER_WIDTH / (2.5 + 0.125),
-                width: 2,
-                backgroundColor: '#233a95'
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+                height: DEFAULT_ROW_HEIGHT / 2
               }}
             />
           </View>
@@ -201,7 +165,13 @@ const styles = StyleSheet.create({
   container: {
     width: DEFAULT_CONTAINER_WIDTH,
     height: DEFAULT_ROW_HEIGHT
-    // backgroundColor: 'lightblue'
+  },
+  lineContainer: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    height: '100%',
+    width: '100%'
   }
 });
 
