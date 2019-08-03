@@ -20,10 +20,19 @@ class ValueCell extends PureComponent {
         : require('./img/ic_arrow_up.png');
     return (
       <View style={{ ...styles.container, height: rowHeight, ...containerStyle }}>
-        <Text style={styles.rawValueText}>{cell.rawValue}</Text>
-        <View style={{ flexDirection: 'row' }}>
-          <Image source={iconImageSource} />
-          <Text style={{ ...styles.calculatedValueText, color: cell.colorType }}>
+        <Text style={{ ...styles.rawValueText, fontSize: rowHeight / 3.75 }}>{cell.rawValue}</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <Image
+            style={{ width: rowHeight / 4.2, height: rowHeight / 4.2 }}
+            source={iconImageSource}
+          />
+          <Text
+            style={{
+              ...styles.calculatedValueText,
+              fontSize: rowHeight / 5,
+              color: cell.colorType
+            }}
+          >
             {`${cell.calculatedValue} ${cell.unit}`}
           </Text>
         </View>

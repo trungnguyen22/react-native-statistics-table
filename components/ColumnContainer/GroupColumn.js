@@ -42,7 +42,13 @@ class GroupColumn extends PureComponent {
   renderChildHeaderTitle = (rowHeight, childHeader) => {
     return (
       <View style={{ ...styles.childHeaderContainer, height: rowHeight / 2 }}>
-        <Text style={{ ...styles.childHeaderLabel, color: childHeader.colorType }}>
+        <Text
+          style={{
+            ...styles.childHeaderLabel,
+            fontSize: rowHeight / 3.75,
+            color: childHeader.colorType
+          }}
+        >
           {childHeader.label}
         </Text>
       </View>
@@ -63,11 +69,11 @@ class GroupColumn extends PureComponent {
     });
   };
 
-  renderColumn = (rowHeight, eachColumn) => {
+  renderColumn = (rowHeight, eachColumn, index) => {
     return (
-      <View style={{ flex: 1 }}>
+      <View key={index} style={{ flex: 1 }}>
         {this.renderChildHeaderTitle(rowHeight, eachColumn)}
-        {this.renderColumnValue(rowHeight, eachColumn.values)}
+        {this.renderColumnValue(rowHeight, eachColumn.values, index)}
       </View>
     );
   };
@@ -75,8 +81,8 @@ class GroupColumn extends PureComponent {
   renderColumns = (rowHeight, dataSource) => {
     return (
       <View style={styles.columnContainer}>
-        {dataSource.children.map(column => {
-          return this.renderColumn(rowHeight, column);
+        {dataSource.children.map((column, index) => {
+          return this.renderColumn(rowHeight, column, index);
         })}
       </View>
     );
@@ -85,7 +91,9 @@ class GroupColumn extends PureComponent {
   renderParentHeaderTitle = (rowHeight, dataSource) => {
     return (
       <View style={{ ...styles.groupHeaderContainer, height: rowHeight / 2 }}>
-        <Text style={styles.parentHeaderLabel}>{dataSource.label}</Text>
+        <Text style={{ ...styles.parentHeaderLabel, fontSize: rowHeight / 3.75 }}>
+          {dataSource.label}
+        </Text>
       </View>
     );
   };
@@ -96,6 +104,7 @@ class GroupColumn extends PureComponent {
       const backgroundColor = index % 2 === 0 ? '#f5f5f5' : '#ffffff';
       return (
         <View
+          key={index}
           style={{
             height: index === 0 ? rowHeight + 0.75 : rowHeight, // workaround
             width: 17,

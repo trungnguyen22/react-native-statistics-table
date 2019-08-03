@@ -15,10 +15,15 @@ import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './Conne
  */
 
 class LeafRow extends PureComponent {
-  renderSeeDetailsButton = () => (
+  renderSeeDetailsButton = rowHeight => (
     <TouchableOpacity style={{ flexDirection: 'row' }}>
-      <Text style={{ ...styles.clickableText, marginLeft: 10 }}>{'Chi tiết'}</Text>
-      <Image source={require('./img/ic_next.png')} />
+      <Text style={{ ...styles.clickableText, fontSize: rowHeight / 3.75, marginLeft: 10 }}>
+        {'Chi tiết'}
+      </Text>
+      <Image
+        style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }}
+        source={require('./img/ic_next.png')}
+      />
     </TouchableOpacity>
   );
 
@@ -62,8 +67,8 @@ class LeafRow extends PureComponent {
         />
         <View style={{ ...styles.titleContainer }}>
           <View style={{ flexDirection: 'row' }}>
-            <Text style={styles.titleText}>{item.title}</Text>
-            {item.isShownSeeMore ? this.renderSeeDetailsButton() : null}
+            <Text style={{ ...styles.titleText, fontSize: rowHeight / 3.75 }}>{item.title}</Text>
+            {item.isShownSeeMore ? this.renderSeeDetailsButton(rowHeight) : null}
           </View>
         </View>
       </View>

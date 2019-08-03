@@ -36,9 +36,12 @@ class RootRow extends PureComponent {
             lineType={0}
           />
         ) : null}
-        <Image source={leftIconImageSource} />
+        <Image
+          style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }}
+          source={leftIconImageSource}
+        />
         <View style={{ ...styles.titleContainer }}>
-          <Text style={styles.titleText}>{item.title}</Text>
+          <Text style={{ ...styles.titleText, fontSize: rowHeight / 3.75 }}>{item.title}</Text>
         </View>
       </View>
     );
