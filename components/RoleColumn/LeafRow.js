@@ -31,9 +31,10 @@ class LeafRow extends PureComponent {
     </TouchableOpacity>
   );
 
-  getConnectedLineType = ({ level, isBeginning, isFinal }) => {
+  getConnectedLineType = ({ level, isExpand, isBeginning, isFinal }) => {
     switch (level) {
       case 1:
+        if (isExpand) return 5;
         return 1;
       case 2:
         if (isBeginning) {

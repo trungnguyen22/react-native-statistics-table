@@ -7,13 +7,31 @@ export const DUMMY_DATA_ROLE = [
     isBeginning: false,
     isFinal: false
   },
+  // Mockup data test expand see details
   {
     title: 'Harrell Gutierrez',
-    isExpand: false,
+    isExpand: true,
     level: 1,
     isShownSeeMore: true,
     isBeginning: false,
     isFinal: false
+  },
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: false
+  },
+  // End of Mockup data test expand see details
+  {
+    title: 'Harrell Gutierrez',
+    isExpand: false,
+    level: 2,
+    isShownSeeMore: false,
+    isBeginning: false,
+    isFinal: true
   },
   {
     title: 'Harrell Gutierrez',

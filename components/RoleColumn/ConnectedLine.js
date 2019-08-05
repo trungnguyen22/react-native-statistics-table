@@ -151,6 +151,31 @@ class ConnectedLine extends PureComponent {
             />
           </View>
         );
+      case 5:
+        return (
+          <View style={styles.lineContainer}>
+            <AbsoluteVerticalLine
+              style={{
+                right: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE,
+                height: rowHeight
+              }}
+            />
+            <AbsoluteHorizontalLine
+              style={{
+                top: rowHeight / 2.125,
+                right: 0,
+                width: DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE
+              }}
+            />
+            <AbsoluteVerticalLine
+              style={{
+                bottom: 0,
+                right: -(DEFAULT_PADDING - DEFAULT_POSITION_RIGHT_ABSOLUTE_LINE),
+                height: rowHeight / 3
+              }}
+            />
+          </View>
+        );
     }
   };
 
