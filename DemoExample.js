@@ -21,6 +21,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import StatisticsTable from './components/StatisticsTable';
 
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from './utils/constants';
+import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from './utils/DummyData';
 
 class DemoExample extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class DemoExample extends Component {
   };
 
   renderZoomInOutButtons = () => (
-    <View style={{ flexDirection: 'row', padding: 24 }}>
+    <View style={{ flexDirection: 'row', padding: 24, alignItems: 'center' }}>
       <TouchableOpacity
         style={{ padding: 16, backgroundColor: 'lightgray' }}
         onPress={this.onZoomOutPress}
@@ -63,6 +64,9 @@ class DemoExample extends Component {
       >
         <Text>Zoom In</Text>
       </TouchableOpacity>
+      <Text style={{ marginLeft: 24, fontSize: 16 }}>
+        Row Height: {this.state.statisticsTableRowHeight}
+      </Text>
     </View>
   );
 
@@ -72,20 +76,24 @@ class DemoExample extends Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView style={{ flex: 1 }}>
-          <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+          <View style={{ flex: 1 }}>
             {this.renderZoomInOutButtons()}
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <StatisticsTable
-                rowHeight={statisticsTableRowHeight}
-                onExpandedCollapsedButtonPress={item => {
-                  alert(item.title);
-                }}
-                onSeeDetailsButtonPress={item => {
-                  alert(item.title);
-                }}
-              />
+            <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                <StatisticsTable
+                  rowHeight={statisticsTableRowHeight}
+                  roleDataSource={DUMMY_DATA_ROLE}
+                  groupColumnDataSource={DUMMY_DATA_GROUP_COLUMN}
+                  onExpandedCollapsedButtonPress={item => {
+                    alert(item.title);
+                  }}
+                  onSeeDetailsButtonPress={item => {
+                    alert(item.title);
+                  }}
+                />
+              </ScrollView>
             </ScrollView>
-          </ScrollView>
+          </View>
         </SafeAreaView>
       </Fragment>
     );
