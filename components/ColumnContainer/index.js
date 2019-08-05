@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 import GroupColumn from './GroupColumn';
 
-class ValueColumnContainer extends PureComponent {
+class GroupColumnContainer extends PureComponent {
   renderGroupColumns = (rowHeight, dataSource) => {
     return dataSource.map((itemGroupHeader, index) => {
       return <GroupColumn key={index} rowHeight={rowHeight} dataSource={itemGroupHeader} />;
@@ -17,4 +17,4 @@ class ValueColumnContainer extends PureComponent {
   }
 }
 
-export default ValueColumnContainer;
+export default GroupColumnContainer;

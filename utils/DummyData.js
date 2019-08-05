@@ -190,7 +190,7 @@ export const DUMMY_DATA_ROLE = [
   }
 ];
 
-export const DUMMY_DATA_GROUP_HEADER = [
+export const DUMMY_DATA_GROUP_COLUMN = [
   {
     label: 'Group Header 1',
     children: [
@@ -382,7 +382,7 @@ export const DUMMY_DATA_GROUP_HEADER = [
     label: 'Group Header 2',
     children: [
       {
-        label: 'Child 2.1',
+        label: '',
         colorType: 'green',
         iconType: 'down',
         values: [
@@ -660,7 +660,7 @@ export const DUMMY_DATA_GROUP_HEADER = [
         ]
       },
       {
-        label: 'Child Header 6',
+        label: 'Child 6',
         colorType: 'green',
         iconType: 'down',
         values: [

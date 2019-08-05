@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
   container: {
     minHeight: DEFAULT_MIN_ROW_HEIGHT,
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingLeft: 6,
-    paddingRight: 6
+    alignItems: 'flex-end',
+    paddingLeft: 24,
+    paddingRight: 24
   },
   rawValueText: {
     fontSize: 16,

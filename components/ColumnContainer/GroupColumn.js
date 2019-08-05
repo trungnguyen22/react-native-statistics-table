@@ -10,7 +10,6 @@ import {
 import ValueCell from './ValueCell';
 
 // Example Model:
-// groupHeader
 // {
 //   label: 'Holcomb Reese',
 //   children: [ // child header of each column
@@ -35,79 +34,100 @@ import ValueCell from './ValueCell';
 //       iconType: 'down',
 //       values: [......]
 //     },
+//     {...}
 //   ]
 // },
 
 class GroupColumn extends PureComponent {
-  renderChildHeaderTitle = (rowHeight, childHeader) => {
+  isHavingChildrenTitle = dataSource => {
+    const { children } = dataSource;
+    for (let i = 0; i < children.length; i += 1) {
+      if (children[i].label !== '') return true;
+    }
+    return false;
+  };
+
+  // ----------------------------------------------------------
+  // RENDER METHODS
+  // ----------------------------------------------------------
+
+  renderChildHeaderTitle = (rowHeight, itemColumn) => {
     return (
       <View style={{ ...styles.childHeaderContainer, height: rowHeight / 2 }}>
         <Text
           style={{
             ...styles.childHeaderLabel,
             fontSize: rowHeight / 3.75,
-            color: childHeader.colorType
+            color: itemColumn.colorType
           }}
         >
-          {childHeader.label}
+          {itemColumn.label}
         </Text>
       </View>
     );
   };
 
-  renderColumnValue = (rowHeight, values) => {
+  renderColumnValue = (rowHeight, values, isHavingChildrenTitle) => {
+    const alignItemsStyle = isHavingChildrenTitle
+      ? { alignItems: 'flex-end' }
+      : { alignItems: 'center' };
     return values.map((cell, index) => {
-      const backgroundColor = index % 2 !== 0 ? '#f5f5f5' : 'white';
+      const backgroundColor = index % 2 !== 0 ? '#f5f5f5' : '#ffffff';
       return (
         <ValueCell
           key={index}
           rowHeight={rowHeight}
-          containerStyle={{ backgroundColor: backgroundColor }}
+          containerStyle={{ backgroundColor: backgroundColor, ...alignItemsStyle }}
           cell={cell}
         />
       );
     });
   };
 
-  renderColumn = (rowHeight, eachColumn, index) => {
+  renderColumn = (index, rowHeight, itemColumn, isHavingChildrenTitle) => {
     return (
       <View key={index} style={{ flex: 1 }}>
-        {this.renderChildHeaderTitle(rowHeight, eachColumn)}
-        {this.renderColumnValue(rowHeight, eachColumn.values, index)}
+        {isHavingChildrenTitle && this.renderChildHeaderTitle(rowHeight, itemColumn)}
+        {this.renderColumnValue(rowHeight, itemColumn.values, isHavingChildrenTitle)}
       </View>
     );
   };
 
-  renderColumns = (rowHeight, dataSource) => {
+  renderParentHeaderTitle = (rowHeight, dataSource, isHavingChildrenTitle) => {
+    const height = isHavingChildrenTitle ? rowHeight / 2 : rowHeight;
+    const borderBottomStyle = isHavingChildrenTitle
+      ? {}
+      : { borderBottomWidth: DEFAULT_BORDER_WIDTH, borderBottomColor: DEFAULT_BORDER_COLOR };
     return (
-      <View style={styles.columnContainer}>
-        {dataSource.children.map((column, index) => {
-          return this.renderColumn(rowHeight, column, index);
-        })}
-      </View>
-    );
-  };
-
-  renderParentHeaderTitle = (rowHeight, dataSource) => {
-    return (
-      <View style={{ ...styles.groupHeaderContainer, height: rowHeight / 2 }}>
-        <Text style={{ ...styles.parentHeaderLabel, fontSize: rowHeight / 3.75 }}>
+      <View style={{ ...styles.groupHeaderContainer, height, ...borderBottomStyle }}>
+        <Text style={{ ...styles.parentHeaderLabel, fontSize: rowHeight / 5 }}>
           {dataSource.label}
         </Text>
       </View>
     );
   };
 
+  renderColumns = (rowHeight, dataSource, isHavingChildrenTitle) => {
+    return (
+      <View style={styles.columnContainer}>
+        {dataSource.children.map((itemColumn, index) => {
+          return this.renderColumn(index, rowHeight, itemColumn, isHavingChildrenTitle);
+        })}
+      </View>
+    );
+  };
+
   renderRightPaddingColumn = (rowHeight, dataSource) => {
-    const fakeArray = Array.from({ length: dataSource.children[0].values.length + 1 });
-    return fakeArray.map((_, index) => {
-      const backgroundColor = index % 2 === 0 ? '#f5f5f5' : '#ffffff';
+    const numberOfRows = dataSource.children[0].values.length;
+    const arr = Array.from({ length: numberOfRows });
+    return arr.map((_, index) => {
+      const backgroundColor = index % 2 !== 0 ? '#f5f5f5' : '#ffffff';
       return (
         <View
           key={index}
           style={{
-            height: index === 0 ? rowHeight + 0.75 : rowHeight, // workaround
-            width: 17,
+            height: index === 0 ? rowHeight + 0.75 : rowHeight,
+            width: rowHeight / 3.5,
             backgroundColor: backgroundColor
           }}
         />
@@ -117,13 +137,16 @@ class GroupColumn extends PureComponent {
 
   render() {
     const { rowHeight, containerStyle, dataSource } = this.props;
+    const isHavingChildrenTitle = this.isHavingChildrenTitle(dataSource);
     return (
       <View style={{ flexDirection: 'row' }}>
         <View style={{ ...styles.container, ...containerStyle }}>
-          {this.renderParentHeaderTitle(rowHeight, dataSource)}
-          {this.renderColumns(rowHeight, dataSource)}
+          {this.renderParentHeaderTitle(rowHeight, dataSource, isHavingChildrenTitle)}
+          {this.renderColumns(rowHeight, dataSource, isHavingChildrenTitle)}
         </View>
-        <View style={{}}>{this.renderRightPaddingColumn(rowHeight, dataSource)}</View>
+        <View style={{ marginTop: rowHeight }}>
+          {this.renderRightPaddingColumn(rowHeight, dataSource)}
+        </View>
       </View>
     );
   }
@@ -160,20 +183,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: DEFAULT_BORDER_WIDTH,
     borderColor: DEFAULT_BORDER_COLOR,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     backgroundColor: 'white',
     paddingLeft: 24,
     paddingRight: 24
   },
   childHeaderLabel: {
     fontFamily: 'HelveticaNeue',
-    fontSize: 14,
     fontWeight: 'normal',
     fontStyle: 'normal',
     letterSpacing: 0,
-    textAlign: 'center',
-    paddingLeft: 6,
-    paddingRight: 6
+    textAlign: 'center'
   },
   columnContainer: {
     flexDirection: 'row',
