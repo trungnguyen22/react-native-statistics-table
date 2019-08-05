@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
 import ConnectedLine from './ConnectedLine';
-
 /**
  {
     "title": "Harrell Gutierrez",
@@ -14,19 +13,39 @@ import ConnectedLine from './ConnectedLine';
   },
  */
 
+const expandedIcon = require('./img/ic_expand.png');
+const collapsedIcon = require('./img/ic_collapse.png');
+
 class RootRow extends PureComponent {
+  renderExpandCollapseButton = (item, rowHeight, leftIcon, onLeftIconPress) => (
+    <TouchableOpacity
+      onPress={() => {
+        onLeftIconPress(item);
+      }}
+    >
+      <Image style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }} source={leftIcon} />
+    </TouchableOpacity>
+  );
+
+  renderRowTitle = (item, rowHeight) => {
+    const fontSize = rowHeight / 3.75;
+    return (
+      <View style={{ ...styles.titleContainer }}>
+        <Text style={{ ...styles.titleText, fontSize }}>{item.title}</Text>
+      </View>
+    );
+  };
+
   render() {
-    const { item, rowHeight, backgroundColor, containerStyle } = this.props;
-    const leftIconImageSource = item.isExpand
-      ? require('./img/ic_collapse.png')
-      : require('./img/ic_expand.png');
+    const { item, rowHeight, backgroundColor, containerStyle, onLeftIconPress } = this.props;
+    const leftIcon = item.isExpand ? collapsedIcon : expandedIcon;
     return (
       <View
         style={{
           ...styles.container,
           ...containerStyle,
           height: rowHeight,
-          backgroundColor: backgroundColor
+          backgroundColor
         }}
       >
         {item.isExpand ? (
@@ -36,13 +55,8 @@ class RootRow extends PureComponent {
             lineType={0}
           />
         ) : null}
-        <Image
-          style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }}
-          source={leftIconImageSource}
-        />
-        <View style={{ ...styles.titleContainer }}>
-          <Text style={{ ...styles.titleText, fontSize: rowHeight / 3.75 }}>{item.title}</Text>
-        </View>
+        {this.renderExpandCollapseButton(item, rowHeight, leftIcon, onLeftIconPress)}
+        {this.renderRowTitle(item, rowHeight)}
       </View>
     );
   }

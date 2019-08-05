@@ -14,16 +14,20 @@ import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './Conne
   },
  */
 
+const iconArrow = require('./img/ic_next.png');
+
 class LeafRow extends PureComponent {
-  renderSeeDetailsButton = rowHeight => (
-    <TouchableOpacity style={{ flexDirection: 'row' }}>
+  renderSeeDetailsButton = (item, rowHeight, onSeeDetailsButtonPress) => (
+    <TouchableOpacity
+      style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
+      onPress={() => {
+        onSeeDetailsButtonPress(item);
+      }}
+    >
       <Text style={{ ...styles.clickableText, fontSize: rowHeight / 3.75, marginLeft: 10 }}>
         {'Chi tiết'}
       </Text>
-      <Image
-        style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }}
-        source={require('./img/ic_next.png')}
-      />
+      <Image style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }} source={iconArrow} />
     </TouchableOpacity>
   );
 
@@ -44,33 +48,46 @@ class LeafRow extends PureComponent {
     }
   };
 
+  renderRowTitle = (item, rowHeight, onSeeDetailsButtonPress) => {
+    const fontSize = rowHeight / 3.75;
+    return (
+      <View style={{ ...styles.titleContainer }}>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={{ ...styles.titleText, fontSize }}>{item.title}</Text>
+          {item.isShownSeeMore
+            ? this.renderSeeDetailsButton(item, rowHeight, onSeeDetailsButtonPress)
+            : null}
+        </View>
+      </View>
+    );
+  };
+
   render() {
-    const { containerStyle, rowHeight, backgroundColor, item } = this.props;
-
+    const {
+      containerStyle,
+      rowHeight,
+      backgroundColor,
+      item,
+      onSeeDetailsButtonPress
+    } = this.props;
     const connectedLineType = this.getConnectedLineType(item);
-    const connectedLineWidth =
+    const connectedLineContainerWidth =
       item.level === 2 ? DEFAULT_CONTAINER_WIDTH + DEFAULT_PADDING : DEFAULT_CONTAINER_WIDTH;
-
     return (
       <View
         style={{
           ...styles.container,
           ...containerStyle,
           height: rowHeight,
-          backgroundColor: backgroundColor
+          backgroundColor
         }}
       >
         <ConnectedLine
           rowHeight={rowHeight}
-          containerStyle={{ width: connectedLineWidth }}
+          containerStyle={{ width: connectedLineContainerWidth }}
           lineType={connectedLineType}
         />
-        <View style={{ ...styles.titleContainer }}>
-          <View style={{ flexDirection: 'row' }}>
-            <Text style={{ ...styles.titleText, fontSize: rowHeight / 3.75 }}>{item.title}</Text>
-            {item.isShownSeeMore ? this.renderSeeDetailsButton(rowHeight) : null}
-          </View>
-        </View>
+        {this.renderRowTitle(item, rowHeight, onSeeDetailsButtonPress)}
       </View>
     );
   }

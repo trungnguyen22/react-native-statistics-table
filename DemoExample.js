@@ -75,7 +75,15 @@ class DemoExample extends Component {
           <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
             {this.renderZoomInOutButtons()}
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <StatisticsTable rowHeight={statisticsTableRowHeight} />
+              <StatisticsTable
+                rowHeight={statisticsTableRowHeight}
+                onExpandedCollapsedButtonPress={item => {
+                  alert(item.title);
+                }}
+                onSeeDetailsButtonPress={item => {
+                  alert(item.title);
+                }}
+              />
             </ScrollView>
           </ScrollView>
         </SafeAreaView>
