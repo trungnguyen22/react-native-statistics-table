@@ -36,7 +36,7 @@ import ValueCell from './ValueCell';
 //   ]
 // },
 
-class GroupColumn extends PureComponent {
+class GroupColumnValue extends PureComponent {
   isHavingChildrenTitle = dataSource => {
     const { children } = dataSource;
     for (let i = 0; i < children.length; i += 1) {
@@ -200,4 +200,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GroupColumn;
+export default GroupColumnValue;

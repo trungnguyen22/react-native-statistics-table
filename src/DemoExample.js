@@ -19,7 +19,6 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import StatisticsTable from './components/StatisticsTable/index';
-
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from './utils/constants';
 import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from './utils/DummyData';
 
@@ -27,7 +26,9 @@ class DemoExample extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statisticsTableRowHeight: DEFAULT_ROW_HEIGHT
+      statisticsTableRowHeight: DEFAULT_ROW_HEIGHT,
+      roleDataSource: DUMMY_DATA_ROLE,
+      groupColumnDataSource: DUMMY_DATA_GROUP_COLUMN
     };
   }
 
@@ -71,7 +72,7 @@ class DemoExample extends Component {
   );
 
   render() {
-    const { statisticsTableRowHeight } = this.state;
+    const { statisticsTableRowHeight, roleDataSource, groupColumnDataSource } = this.state;
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
@@ -82,14 +83,10 @@ class DemoExample extends Component {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <StatisticsTable
                   rowHeight={statisticsTableRowHeight}
-                  roleDataSource={DUMMY_DATA_ROLE}
-                  groupColumnDataSource={DUMMY_DATA_GROUP_COLUMN}
-                  onExpandedCollapsedButtonPress={item => {
-                    alert(item.title);
-                  }}
-                  onSeeDetailsButtonPress={item => {
-                    alert(item.title);
-                  }}
+                  roleDataSource={roleDataSource}
+                  groupColumnDataSource={groupColumnDataSource}
+                  onExpandedCollapsedButtonPress={item => {}}
+                  onSeeDetailsButtonPress={item => {}}
                 />
               </ScrollView>
             </ScrollView>

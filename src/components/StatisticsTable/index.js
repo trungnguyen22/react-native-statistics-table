@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 import RoleColumn from '../RoleColumn';
-import GroupColumnContainer from '../ColumnContainer';
+import GroupColumnValueContainer from '../GroupColumnValue';
 import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from '../../utils/DummyData';
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
 
@@ -68,7 +68,10 @@ class StatisticsTable extends PureComponent {
           onExpandedCollapsedButtonPress={this.onExpandedCollapsedButtonPress}
           onSeeDetailsButtonPress={this.onSeeDetailsButtonPress}
         />
-        <GroupColumnContainer rowHeight={calculatedRowHeight} dataSource={groupColumnDataSource} />
+        <GroupColumnValueContainer
+          rowHeight={calculatedRowHeight}
+          dataSource={groupColumnDataSource}
+        />
       </View>
     );
   }
