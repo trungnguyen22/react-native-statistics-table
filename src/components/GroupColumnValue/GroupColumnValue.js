@@ -162,7 +162,9 @@ const styles = StyleSheet.create({
     minHeight: DEFAULT_MIN_ROW_HEIGHT / 2,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    paddingLeft: 16,
+    paddingRight: 16
   },
   parentHeaderLabel: {
     opacity: 0.6,
