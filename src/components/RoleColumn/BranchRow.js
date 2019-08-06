@@ -16,7 +16,7 @@ import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './Conne
 
 const iconArrow = require('./img/ic_next.png');
 
-class LeafRow extends PureComponent {
+class BranchRow extends PureComponent {
   renderSeeDetailsButton = (item, rowHeight, onSeeDetailsButtonPress) => (
     <TouchableOpacity
       style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
@@ -55,7 +55,7 @@ class LeafRow extends PureComponent {
       <View style={{ ...styles.titleContainer }}>
         <View style={{ flexDirection: 'row' }}>
           <Text style={{ ...styles.titleText, fontSize }}>{item.title}</Text>
-          {item.isShownSeeMore
+          {item.isShownSeeMore && !item.isExpand
             ? this.renderSeeDetailsButton(item, rowHeight, onSeeDetailsButtonPress)
             : null}
         </View>
@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LeafRow;
+export default BranchRow;

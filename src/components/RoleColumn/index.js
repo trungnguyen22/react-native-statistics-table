@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import RootRow from './RootRow';
-import LeafRow from './LeafRow';
+import BranchRow from './BranchRow';
 import { DEFAULT_BORDER_WIDTH, DEFAULT_BORDER_COLOR } from '../../utils/constants';
 
 export class RoleColumn extends PureComponent {
@@ -18,7 +18,7 @@ export class RoleColumn extends PureComponent {
         }}
       />
     ) : (
-      <LeafRow
+      <BranchRow
         rowHeight={rowHeight}
         backgroundColor={backgroundColor}
         item={item}
