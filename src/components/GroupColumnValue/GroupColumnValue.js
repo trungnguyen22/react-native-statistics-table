@@ -82,15 +82,6 @@ class GroupColumnValue extends PureComponent {
     });
   };
 
-  renderColumn = (index, rowHeight, itemColumn, isHavingChildrenTitle) => {
-    return (
-      <View key={index} style={{ flex: 1 }}>
-        {isHavingChildrenTitle && this.renderChildHeaderTitle(rowHeight, itemColumn)}
-        {this.renderColumnValue(rowHeight, itemColumn.values, isHavingChildrenTitle)}
-      </View>
-    );
-  };
-
   renderParentHeaderTitle = (rowHeight, dataSource, isHavingChildrenTitle) => {
     const height = isHavingChildrenTitle ? rowHeight / 2 : rowHeight;
     const borderBottomStyle = isHavingChildrenTitle
@@ -101,6 +92,15 @@ class GroupColumnValue extends PureComponent {
         <Text style={{ ...styles.parentHeaderLabel, fontSize: rowHeight / 5 }}>
           {dataSource.label}
         </Text>
+      </View>
+    );
+  };
+
+  renderColumn = (index, rowHeight, itemColumn, isHavingChildrenTitle) => {
+    return (
+      <View key={index} style={{ flex: 1 }}>
+        {isHavingChildrenTitle && this.renderChildHeaderTitle(rowHeight, itemColumn)}
+        {this.renderColumnValue(rowHeight, itemColumn.values, isHavingChildrenTitle)}
       </View>
     );
   };
