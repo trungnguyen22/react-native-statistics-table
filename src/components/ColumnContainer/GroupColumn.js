@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import {
-  DEFAULT_ROW_HEIGHT,
-  DEFAULT_VALUE_CELL_WIDTH,
   DEFAULT_BORDER_WIDTH,
   DEFAULT_BORDER_COLOR,
   DEFAULT_MIN_ROW_HEIGHT

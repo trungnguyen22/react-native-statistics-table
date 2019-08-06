@@ -2,7 +2,6 @@
 import React, { PureComponent } from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
-  DEFAULT_ROW_HEIGHT,
   DEFAULT_LINE_COLOR,
   DEFAULT_MIN_ROW_HEIGHT
 } from '../../utils/constants';

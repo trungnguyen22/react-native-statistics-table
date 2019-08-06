@@ -57,11 +57,7 @@ class StatisticsTable extends PureComponent {
   };
 
   render() {
-    const {
-      rowHeight = DEFAULT_ROW_HEIGHT,
-      roleDataSource = DUMMY_DATA_ROLE,
-      groupColumnDataSource = DUMMY_DATA_GROUP_COLUMN
-    } = this.props;
+    const { rowHeight = DEFAULT_ROW_HEIGHT, roleDataSource, groupColumnDataSource } = this.props;
     const calculatedRowHeight =
       rowHeight >= DEFAULT_MIN_ROW_HEIGHT ? rowHeight : DEFAULT_MIN_ROW_HEIGHT;
     return (

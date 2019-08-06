@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import StatisticsTable from './components/StatisticsTable';
+import StatisticsTable from './components/StatisticsTable/index';
 
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from './utils/constants';
 import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from './utils/DummyData';
