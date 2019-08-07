@@ -28,21 +28,25 @@ class MonthPicker extends PureComponent {
   };
 
   onPreviousButtonPress = () => {
+    const { onDateTimeChange } = this.props;
     const { dateTime } = this.state;
     const previousMonthDateTime = this.getPreviousMonthDateTime(dateTime);
     this.setState({
       dateTime: previousMonthDateTime,
       canGoNextMonth: true
     });
+    onDateTimeChange(dateTime);
   };
 
   onNextButtonPress = () => {
+    const { onDateTimeChange } = this.props;
     const { dateTime } = this.state;
     const nextMonthDateTime = this.getNextMonthDateTime(dateTime, this.today);
     this.setState({
       dateTime: nextMonthDateTime,
       canGoNextMonth: !isSameMonth(nextMonthDateTime, new Date())
     });
+    onDateTimeChange(dateTime);
   };
 
   renderButton = (imageSource, onPress, isDisabled) => (
