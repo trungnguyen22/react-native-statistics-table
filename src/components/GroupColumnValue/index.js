@@ -14,7 +14,8 @@ class GroupColumnValueContainer extends PureComponent {
 
   render() {
     const { dataSource } = this.props;
-    const flatListWidth = SCREEN_HEIGHT > SCREEN_WIDTH ? SCREEN_HEIGHT : SCREEN_WIDTH;
+    const flatListWidth =
+      (SCREEN_HEIGHT + SCREEN_WIDTH + Math.abs(SCREEN_HEIGHT - SCREEN_WIDTH)) / 2;
     return (
       <View style={{ flexDirection: 'row' }}>
         <FlatList
