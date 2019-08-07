@@ -40,7 +40,7 @@ class GroupColumnValue extends PureComponent {
   isHavingChildrenTitle = dataSource => {
     const { children } = dataSource;
     for (let i = 0; i < children.length; i += 1) {
-      if (children[i].label !== '') return true;
+      if (children[i].label) return true;
     }
     return false;
   };
