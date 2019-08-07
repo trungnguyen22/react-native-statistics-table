@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
+import { DEFAULT_MIN_ROW_HEIGHT, DEFAULT_ROLE_ROW_WIDTH } from '../../utils/constants';
 import ConnectedLine from './ConnectedLine';
 /**
  {
@@ -17,21 +17,17 @@ const expandedIcon = require('./img/ic_expand.png');
 const collapsedIcon = require('./img/ic_collapse.png');
 
 class RootRow extends PureComponent {
-  renderExpandCollapseButton = (item, rowHeight, leftIcon, onLeftIconPress) => (
-    <TouchableOpacity
-      onPress={() => {
-        onLeftIconPress(item);
-      }}
-    >
-      <Image style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }} source={leftIcon} />
-    </TouchableOpacity>
+  renderExpandCollapseButton = (rowHeight, leftIcon) => (
+    <Image style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }} source={leftIcon} />
   );
 
   renderRowTitle = (item, rowHeight) => {
     const fontSize = rowHeight / 3.75;
     return (
       <View style={{ ...styles.titleContainer }}>
-        <Text style={{ ...styles.titleText, fontSize }}>{item.title}</Text>
+        <Text numberOfLines={1} ellipsizeMode="middle" style={{ ...styles.titleText, fontSize }}>
+          {item.title}
+        </Text>
       </View>
     );
   };
@@ -40,30 +36,38 @@ class RootRow extends PureComponent {
     const { item, rowHeight, backgroundColor, containerStyle, onLeftIconPress } = this.props;
     const leftIcon = item.isExpand ? collapsedIcon : expandedIcon;
     return (
-      <View
-        style={{
-          ...styles.container,
-          ...containerStyle,
-          height: rowHeight,
-          backgroundColor
+      <TouchableOpacity
+        activeOpacity={0.2}
+        onPress={() => {
+          onLeftIconPress(item);
         }}
       >
-        {item.isExpand ? (
-          <ConnectedLine
-            rowHeight={rowHeight}
-            containerStyle={{ position: 'absolute', left: 0, top: 0, bottom: 0 }}
-            lineType={0}
-          />
-        ) : null}
-        {this.renderExpandCollapseButton(item, rowHeight, leftIcon, onLeftIconPress)}
-        {this.renderRowTitle(item, rowHeight)}
-      </View>
+        <View
+          style={{
+            ...styles.container,
+            ...containerStyle,
+            height: rowHeight,
+            backgroundColor
+          }}
+        >
+          {item.isExpand ? (
+            <ConnectedLine
+              rowHeight={rowHeight}
+              containerStyle={{ position: 'absolute', left: 0, top: 0, bottom: 0 }}
+              lineType={0}
+            />
+          ) : null}
+          {this.renderExpandCollapseButton(rowHeight, leftIcon)}
+          {this.renderRowTitle(item, rowHeight)}
+        </View>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    width: DEFAULT_ROLE_ROW_WIDTH,
     flex: 1,
     minHeight: DEFAULT_MIN_ROW_HEIGHT,
     flexDirection: 'row',

@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     borderTopWidth: DEFAULT_BORDER_WIDTH,
     borderBottomWidth: DEFAULT_BORDER_WIDTH,
     borderLeftWidth: DEFAULT_BORDER_WIDTH,
+    borderRightWidth: DEFAULT_BORDER_WIDTH,
     borderColor: DEFAULT_BORDER_COLOR
   }
 });

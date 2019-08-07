@@ -75,7 +75,7 @@ class GroupColumnValue extends PureComponent {
         <ValueCell
           key={index}
           rowHeight={rowHeight}
-          containerStyle={{ backgroundColor: backgroundColor, ...alignItemsStyle }}
+          containerStyle={{ backgroundColor, ...alignItemsStyle }}
           cell={cell}
         />
       );

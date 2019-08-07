@@ -1,6 +1,6 @@
 export const DUMMY_DATA_ROLE = [
   {
-    title: 'Harrell Gutierrez',
+    title: 'Cao Phuong Duc',
     isExpand: true,
     level: 0,
     isShownSeeMore: false,
@@ -9,7 +9,7 @@ export const DUMMY_DATA_ROLE = [
   },
   // Mockup data test expand see details
   {
-    title: 'Harrell Gutierrez',
+    title: 'Phan Thanh Long',
     isExpand: true,
     level: 1,
     isShownSeeMore: true,
@@ -17,7 +17,7 @@ export const DUMMY_DATA_ROLE = [
     isFinal: false
   },
   {
-    title: 'Harrell Gutierrez',
+    title: 'Phan Thanh Vinh',
     isExpand: false,
     level: 2,
     isShownSeeMore: false,
@@ -26,7 +26,7 @@ export const DUMMY_DATA_ROLE = [
   },
   // End of Mockup data test expand see details
   {
-    title: 'Harrell Gutierrez',
+    title: 'Nguyen Quoc Trung',
     isExpand: false,
     level: 2,
     isShownSeeMore: false,
@@ -34,7 +34,7 @@ export const DUMMY_DATA_ROLE = [
     isFinal: true
   },
   {
-    title: 'Harrell Gutierrez',
+    title: 'Nguyen Thi Thu Trang',
     isExpand: false,
     level: 1,
     isShownSeeMore: true,
@@ -51,7 +51,7 @@ export const DUMMY_DATA_ROLE = [
   },
   // Beginning Level 2
   {
-    title: 'Harrell Gutierrez',
+    title: 'Ly Quoc Dat',
     isExpand: false,
     level: 2,
     isShownSeeMore: false,
@@ -59,7 +59,7 @@ export const DUMMY_DATA_ROLE = [
     isFinal: false
   },
   {
-    title: 'Harrell Gutierrez',
+    title: 'Nguyen Lam Thao Tam',
     isExpand: false,
     level: 2,
     isShownSeeMore: false,

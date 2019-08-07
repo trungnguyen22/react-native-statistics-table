@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Dimensions } from 'react-native';
 import GroupColumnValue from './GroupColumnValue';
+import { DEFAULT_ROLE_ROW_WIDTH } from '../../utils/constants';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class GroupColumnValueContainer extends PureComponent {
   renderGroupColumns = ({ item }) => {
@@ -13,6 +16,7 @@ class GroupColumnValueContainer extends PureComponent {
     return (
       <View style={{ flexDirection: 'row' }}>
         <FlatList
+          style={{ width: SCREEN_WIDTH - DEFAULT_ROLE_ROW_WIDTH }}
           horizontal
           bounces={false}
           data={dataSource}

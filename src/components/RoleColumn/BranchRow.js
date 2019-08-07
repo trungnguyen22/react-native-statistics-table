@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { DEFAULT_MIN_ROW_HEIGHT } from '../../utils/constants';
+import { DEFAULT_MIN_ROW_HEIGHT, DEFAULT_ROLE_ROW_WIDTH } from '../../utils/constants';
 import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './ConnectedLine';
 
 /**
@@ -17,20 +17,6 @@ import ConnectedLine, { DEFAULT_CONTAINER_WIDTH, DEFAULT_PADDING } from './Conne
 const iconArrow = require('./img/ic_next.png');
 
 class BranchRow extends PureComponent {
-  renderSeeDetailsButton = (item, rowHeight, onSeeDetailsButtonPress) => (
-    <TouchableOpacity
-      style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
-      onPress={() => {
-        onSeeDetailsButtonPress(item);
-      }}
-    >
-      <Text style={{ ...styles.clickableText, fontSize: rowHeight / 3.75, marginLeft: 10 }}>
-        {'Chi tiết'}
-      </Text>
-      <Image style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }} source={iconArrow} />
-    </TouchableOpacity>
-  );
-
   getConnectedLineType = ({ level, isExpand, isBeginning, isFinal }) => {
     switch (level) {
       case 1:
@@ -49,17 +35,40 @@ class BranchRow extends PureComponent {
     }
   };
 
-  renderRowTitle = (item, rowHeight, onSeeDetailsButtonPress) => {
-    const fontSize = rowHeight / 3.75;
+  renderTitleLabel = (item, rowHeight) => {
+    const titleFontSize = rowHeight / 3.75;
+    const textColor = item.isShownSeeMore && !item.isExpand ? '#00bc00' : '#24253d';
+    const textStyle = { fontSize: titleFontSize, color: textColor };
     return (
-      <View style={{ ...styles.titleContainer }}>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={{ ...styles.titleText, fontSize }}>{item.title}</Text>
-          {item.isShownSeeMore && !item.isExpand
-            ? this.renderSeeDetailsButton(item, rowHeight, onSeeDetailsButtonPress)
-            : null}
+      <Text numberOfLines={1} ellipsizeMode="middle" style={{ ...styles.titleText, ...textStyle }}>
+        {item.title}
+      </Text>
+    );
+  };
+
+  renderArrowIcon = rowHeight => (
+    <Image
+      style={{ marginTop: 3, width: rowHeight / 3.333, height: rowHeight / 3.333 }}
+      source={iconArrow}
+    />
+  );
+
+  renderRowTitle = (item, rowHeight, onSeeDetailsButtonPress) => {
+    const isShownIconArrow = item.isShownSeeMore && !item.isExpand;
+    const canTouch = !(item.isShownSeeMore && !item.isExpand);
+    return (
+      <TouchableOpacity
+        disabled={canTouch}
+        onPress={() => {
+          onSeeDetailsButtonPress(item);
+        }}
+        style={{ ...styles.titleContainer }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          {this.renderTitleLabel(item, rowHeight)}
+          {isShownIconArrow && this.renderArrowIcon(rowHeight)}
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -96,6 +105,7 @@ class BranchRow extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
+    width: DEFAULT_ROLE_ROW_WIDTH,
     flex: 1,
     minHeight: DEFAULT_MIN_ROW_HEIGHT,
     flexDirection: 'row',
