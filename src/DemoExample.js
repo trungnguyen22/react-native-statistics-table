@@ -21,6 +21,8 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import StatisticsTable from './components/StatisticsTable/index';
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from './utils/constants';
 import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from './utils/DummyData';
+import MonthPicker from './components/MonthPicker';
+import { addMonths, subMonths } from 'date-fns';
 
 class DemoExample extends Component {
   constructor(props) {
@@ -68,6 +70,7 @@ class DemoExample extends Component {
       <Text style={{ marginLeft: 24, fontSize: 16 }}>
         Row Height: {this.state.statisticsTableRowHeight}
       </Text>
+      <MonthPicker dateTime={subMonths(new Date(), 10)} />
     </View>
   );
 

@@ -19,7 +19,7 @@
       }
     ],
     "prettier/prettier": [
-      "error",
+      "off",
       {
         "trailingComma": "es5",
         "singleQuote": true,
