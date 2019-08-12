@@ -11,6 +11,8 @@ import DropDownFilter from './DropDownFilter';
  *    isSelected: false
  *    dataSource: [
  *      {
+ *        id: 1234, // optional
+ *        value: 1234, // optional
  *        label: 'Order Product Price Asc',
  *        isSelected: false,
  *      }
@@ -39,10 +41,10 @@ class GroupDropDownFilter extends PureComponent {
           dataSource={filter.dataSource}
           isShownDropDownList={filter.isSelected}
           onFilterButtonPress={() => {
-            onFilterSelect(filter);
+            onFilterSelect(index);
           }}
-          onItemFilterPress={itemFilter => {
-            onFilterItemSelect(filter, itemFilter);
+          onItemFilterPress={(itemFilter, itemFilterIndex) => {
+            onFilterItemSelect(index, itemFilterIndex);
           }}
         />
       );

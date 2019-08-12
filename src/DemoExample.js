@@ -62,12 +62,11 @@ class DemoExample extends Component {
   // DROP DOWN FILTER EVENT HANDLERS
   // ----------------------------------------------
 
-  onFilterSelect = selectedFilter => {
+  onFilterSelect = filterIndex => {
     const { filterDataSource } = this.state;
-    const selectedFilterIndex = filterDataSource.indexOf(selectedFilter);
     const mappedfilterDataSource = filterDataSource.map((item, index) => {
       const mappedItem = Object.assign({}, item);
-      mappedItem.isSelected = index === selectedFilterIndex && !item.isSelected;
+      mappedItem.isSelected = index === filterIndex && !item.isSelected;
       return mappedItem;
     });
     this.setState({
@@ -75,20 +74,18 @@ class DemoExample extends Component {
     });
   };
 
-  onFilterItemSelect = (selectedFilter, selectedItemFilter) => {
+  onFilterItemSelect = (filterIndex, filterItemIndex) => {
     const { filterDataSource } = this.state;
-    const selectedFilterIndex = filterDataSource.indexOf(selectedFilter);
-    const selectedItemFilterIndex = selectedFilter.dataSource.indexOf(selectedItemFilter);
-
+    const selectedFilter = filterDataSource[filterIndex];
     const mappedDataSource = selectedFilter.dataSource.map((itemFilter, index) => {
       const mappedItemFilter = Object.assign({}, itemFilter);
-      mappedItemFilter.isSelected = index === selectedItemFilterIndex;
+      mappedItemFilter.isSelected = index === filterItemIndex;
       return mappedItemFilter;
     });
 
     const mappedfilterDataSource = filterDataSource.map((item, index) => {
       const mappedItem = Object.assign({}, item);
-      if (index === selectedFilterIndex) {
+      if (index === filterIndex) {
         mappedItem.dataSource = mappedDataSource;
       }
       return mappedItem;
@@ -104,7 +101,14 @@ class DemoExample extends Component {
   // ----------------------------------------------
 
   renderZoomInOutButtons = statisticsTableRowHeight => (
-    <View style={{ flexDirection: 'row', padding: 12, alignItems: 'center', backgroundColor: 'lightgray' }}>
+    <View
+      style={{
+        flexDirection: 'row',
+        padding: 12,
+        alignItems: 'center',
+        backgroundColor: 'lightgray'
+      }}
+    >
       <TouchableOpacity
         style={{ padding: 16, backgroundColor: 'lightgray' }}
         onPress={this.onZoomOutPress}

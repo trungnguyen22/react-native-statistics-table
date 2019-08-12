@@ -15,9 +15,9 @@ import DropDownItemFilter from './DropDownItemFilter';
 const smallRectangleIcon = require('./img/ic_rect.png');
 
 class DropDownListItemFilter extends PureComponent {
-  onItemPress = item => {
+  onItemPress = (item, index) => {
     const { onItemFilterPress } = this.props;
-    onItemFilterPress(item);
+    onItemFilterPress(item, index);
   };
 
   renderItems = dataSource => {
@@ -29,7 +29,7 @@ class DropDownListItemFilter extends PureComponent {
           isSelected={item.isSelected}
           isShownBottomSeperatorLine={index !== dataSource.length - 1}
           onPress={() => {
-            this.onItemPress(item);
+            this.onItemPress(item, index);
           }}
         />
       );
