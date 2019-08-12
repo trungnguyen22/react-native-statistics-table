@@ -15,34 +15,35 @@ const iconArrowUp = require('./img/ic_arrow_up.png');
 const iconArrowDown = require('./img/ic_arrow_down.png');
 
 class ValueCell extends PureComponent {
+  renderCalculatedValue = (rowHeight, iconImageSource, cell) => (
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 4
+      }}
+    >
+      <Image style={{ width: rowHeight / 4.2, height: rowHeight / 4.2 }} source={iconImageSource} />
+      <Text
+        style={{
+          ...styles.calculatedValueText,
+          fontSize: rowHeight / 5,
+          color: cell.colorType
+        }}
+      >
+        {`${cell.calculatedValue} ${cell.unit}`}
+      </Text>
+    </View>
+  );
+
   render() {
     const { rowHeight, containerStyle, cell } = this.props;
     const iconImageSource = cell.iconType === 'down' ? iconArrowDown : iconArrowUp;
     return (
       <View style={{ ...styles.container, height: rowHeight, ...containerStyle }}>
         <Text style={{ ...styles.rawValueText, fontSize: rowHeight / 3.75 }}>{cell.rawValue}</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: 4
-          }}
-        >
-          <Image
-            style={{ width: rowHeight / 4.2, height: rowHeight / 4.2 }}
-            source={iconImageSource}
-          />
-          <Text
-            style={{
-              ...styles.calculatedValueText,
-              fontSize: rowHeight / 5,
-              color: cell.colorType
-            }}
-          >
-            {`${cell.calculatedValue} ${cell.unit}`}
-          </Text>
-        </View>
+        {cell.calculatedValue ? this.renderCalculatedValue(rowHeight, iconImageSource, cell) : null}
       </View>
     );
   }

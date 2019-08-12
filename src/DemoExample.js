@@ -104,7 +104,7 @@ class DemoExample extends Component {
   // ----------------------------------------------
 
   renderZoomInOutButtons = statisticsTableRowHeight => (
-    <View style={{ flexDirection: 'row', padding: 24, alignItems: 'center', backgroundColor: 'lightgray' }}>
+    <View style={{ flexDirection: 'row', padding: 12, alignItems: 'center', backgroundColor: 'lightgray' }}>
       <TouchableOpacity
         style={{ padding: 16, backgroundColor: 'lightgray' }}
         onPress={this.onZoomOutPress}
@@ -148,7 +148,7 @@ class DemoExample extends Component {
             />
           </ScrollView>
           <GroupDropDownFilter
-            containerStyle={{ position: 'absolute', top: 38, right: 24 }}
+            containerStyle={{ position: 'absolute', top: 24, right: 24 }}
             dataSource={filterDataSource}
             onFilterSelect={this.onFilterSelect}
             onFilterItemSelect={this.onFilterItemSelect}

@@ -1,6 +1,7 @@
 export const DUMMY_DATA_ROLE = [
   {
     title: 'Cao Phuong Duc',
+    canExpand: true,
     isExpand: true,
     level: 0,
     isShownSeeMore: false,
@@ -219,7 +220,7 @@ export const DUMMY_DATA_GROUP_COLUMN = [
         values: [
           {
             rawValue: '1,232,000,000,000',
-            calculatedValue: 34,
+            calculatedValue: '',
             colorType: 'red',
             iconType: 'down',
             unit: '%'

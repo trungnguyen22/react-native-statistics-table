@@ -48,7 +48,7 @@ class BranchRow extends PureComponent {
 
   renderArrowIcon = rowHeight => (
     <Image
-      style={{ marginTop: 3, width: rowHeight / 3.333, height: rowHeight / 3.333 }}
+      style={{ width: rowHeight / 3.333, height: rowHeight / 3.333 }}
       source={iconArrow}
     />
   );

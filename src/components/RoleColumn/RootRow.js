@@ -57,7 +57,7 @@ class RootRow extends PureComponent {
               lineType={0}
             />
           ) : null}
-          {this.renderExpandCollapseButton(rowHeight, leftIcon)}
+          {item.canExpand && this.renderExpandCollapseButton(rowHeight, leftIcon)}
           {this.renderRowTitle(item, rowHeight)}
         </View>
       </TouchableOpacity>
