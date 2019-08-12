@@ -18,7 +18,7 @@ class DropDownFilter extends PureComponent {
       ? { color: '#00b600' }
       : { color: '#24253d', opacity: 0.6 };
     return (
-      <View style={{ ...containerStyle }}>
+      <View style={{ ...containerStyle }} pointerEvents="box-none">
         <DropDownFilterButton
           containerStyle={{ alignSelf: 'flex-end', marginRight: 24 }}
           titleTextStyle={filterButtonTextStyle}

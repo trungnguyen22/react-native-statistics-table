@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import DropDownFilter from './DropDownFilter';
 
 /**
@@ -21,6 +21,8 @@ import DropDownFilter from './DropDownFilter';
  * ]
  */
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class GroupDropDownFilter extends PureComponent {
   renderDropDownFilters = (dataSource, onFilterSelect, onFilterItemSelect) => {
@@ -54,7 +56,7 @@ class GroupDropDownFilter extends PureComponent {
   render() {
     const { containerStyle, dataSource, onFilterSelect, onFilterItemSelect } = this.props;
     return (
-      <View style={{ ...styles.container, ...containerStyle }}>
+      <View style={{ ...styles.container, ...containerStyle }} pointerEvents="box-none">
         {this.renderDropDownFilters(dataSource, onFilterSelect, onFilterItemSelect)}
       </View>
     );
@@ -63,7 +65,8 @@ class GroupDropDownFilter extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    width: SCREEN_WIDTH,
+    height: SCREEN_HEIGHT,
     flexDirection: 'row'
   }
 });
