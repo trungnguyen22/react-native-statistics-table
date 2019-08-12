@@ -1,6 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { addMonths, isSameMonth, lastDayOfMonth, subMonths, getDate, isPast } from 'date-fns';
+import {
+  addMonths,
+  isSameMonth,
+  lastDayOfMonth,
+  subMonths,
+  getDate,
+  isPast,
+  isEqual
+} from 'date-fns';
 
 const iconPreviousButton = require('./img/icon_previous.png');
 const iconNextButton = require('./img/ic_next.png');
@@ -12,7 +20,7 @@ class MonthPicker extends PureComponent {
     const { dateTime = undefined } = this.props;
     this.state = {
       dateTime: dateTime || new Date(),
-      canGoNextMonth: isPast(dateTime)
+      canGoNextMonth: !isSameMonth(dateTime, new Date())
     };
     this.today = new Date();
   }
@@ -35,7 +43,7 @@ class MonthPicker extends PureComponent {
       dateTime: previousMonthDateTime,
       canGoNextMonth: true
     });
-    onDateTimeChange(dateTime);
+    onDateTimeChange(previousMonthDateTime);
   };
 
   onNextButtonPress = () => {
@@ -46,13 +54,13 @@ class MonthPicker extends PureComponent {
       dateTime: nextMonthDateTime,
       canGoNextMonth: !isSameMonth(nextMonthDateTime, new Date())
     });
-    onDateTimeChange(dateTime);
+    onDateTimeChange(nextMonthDateTime);
   };
 
   renderButton = (imageSource, onPress, isDisabled) => (
     <TouchableOpacity
       disabled={isDisabled}
-      style={{ marginLeft: 8, marginRight: 8 }}
+      style={{ padding: 12 }}
       onPress={onPress}
     >
       <Image source={imageSource} />

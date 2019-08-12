@@ -120,7 +120,7 @@ class DemoExample extends Component {
       <Text style={{ marginLeft: 24, fontSize: 16 }}>Row Height: {statisticsTableRowHeight}</Text>
       <MonthPicker
         containerStyle={{ zIndex: 999 }}
-        dateTime={subMonths(new Date(), 10)}
+        dateTime={new Date()}
         onDateTimeChange={() => {}}
       />
     </View>
