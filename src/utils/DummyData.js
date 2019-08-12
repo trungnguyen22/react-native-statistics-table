@@ -1314,3 +1314,63 @@ export const DUMMY_DATA_GROUP_VALUE = [
     ]
   }
 ];
+
+export const DUMMY_DATA_FILTER = [
+  {
+    label: 'Theo doanh số từ cao xuống thấp',
+    isSelected: true
+  },
+  {
+    label: 'Theo doanh số từ thấp đến cao',
+    isSelected: false
+  },
+  {
+    label: 'Theo tỉ lệ tăng trưởng giảm dần',
+    isSelected: false
+  },
+  {
+    label: 'Theo tỉ lệ tăng trưởng tăng dần',
+    isSelected: false
+  }
+];
+
+export const DUMMY_DATA_GROUP_FILTER = [
+  {
+    buttonTitle: 'Sắp xếp',
+    buttonIcon: require('../components/DropDownFilter/img/ic_sorting_order.png'),
+    isSelected: false,
+    dataSource: [
+      {
+        label: 'Theo doanh số từ cao xuống thấp',
+        isSelected: true
+      },
+      {
+        label: 'Theo doanh số từ thấp đến cao',
+        isSelected: false
+      },
+      {
+        label: 'Theo tỉ lệ tăng trưởng giảm dần',
+        isSelected: false
+      },
+      {
+        label: 'Theo tỉ lệ tăng trưởng tăng dần',
+        isSelected: false
+      }
+    ]
+  },
+  {
+    buttonTitle: 'Lọc',
+    buttonIcon: require('../components/DropDownFilter/img/ic_sorting_order.png'),
+    isSelected: false,
+    dataSource: [
+      {
+        label: 'Thống kê theo nhánh',
+        isSelected: true
+      },
+      {
+        label: 'Thống kê theo doanh số tự bán',
+        isSelected: false
+      }
+    ]
+  }
+];

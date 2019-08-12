@@ -16,13 +16,17 @@ import {
   TouchableOpacity,
   StatusBar
 } from 'react-native';
+import { subMonths } from 'date-fns';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import StatisticsTable from './components/StatisticsTable/index';
 import { DEFAULT_ROW_HEIGHT, DEFAULT_MIN_ROW_HEIGHT } from './utils/constants';
-import { DUMMY_DATA_ROLE, DUMMY_DATA_GROUP_COLUMN } from './utils/DummyData';
+import {
+  DUMMY_DATA_ROLE,
+  DUMMY_DATA_GROUP_COLUMN,
+  DUMMY_DATA_GROUP_FILTER
+} from './utils/DummyData';
 import MonthPicker from './components/MonthPicker';
-import { subMonths } from 'date-fns';
+import GroupDropDownFilter from './components/DropDownFilter/GroupDropDownFilter';
 
 class DemoExample extends Component {
   constructor(props) {
@@ -30,7 +34,8 @@ class DemoExample extends Component {
     this.state = {
       statisticsTableRowHeight: DEFAULT_ROW_HEIGHT,
       roleDataSource: DUMMY_DATA_ROLE,
-      groupColumnDataSource: DUMMY_DATA_GROUP_COLUMN
+      groupColumnDataSource: DUMMY_DATA_GROUP_COLUMN,
+      filterDataSource: DUMMY_DATA_GROUP_FILTER
     };
   }
 
@@ -53,8 +58,53 @@ class DemoExample extends Component {
     });
   };
 
-  renderZoomInOutButtons = () => (
-    <View style={{ flexDirection: 'row', padding: 24, alignItems: 'center' }}>
+  // ----------------------------------------------
+  // DROP DOWN FILTER EVENT HANDLERS
+  // ----------------------------------------------
+
+  onFilterSelect = selectedFilter => {
+    const { filterDataSource } = this.state;
+    const selectedFilterIndex = filterDataSource.indexOf(selectedFilter);
+    const mappedfilterDataSource = filterDataSource.map((item, index) => {
+      const mappedItem = Object.assign({}, item);
+      mappedItem.isSelected = index === selectedFilterIndex && !item.isSelected;
+      return mappedItem;
+    });
+    this.setState({
+      filterDataSource: mappedfilterDataSource
+    });
+  };
+
+  onFilterItemSelect = (selectedFilter, selectedItemFilter) => {
+    const { filterDataSource } = this.state;
+    const selectedFilterIndex = filterDataSource.indexOf(selectedFilter);
+    const selectedItemFilterIndex = selectedFilter.dataSource.indexOf(selectedItemFilter);
+
+    const mappedDataSource = selectedFilter.dataSource.map((itemFilter, index) => {
+      const mappedItemFilter = Object.assign({}, itemFilter);
+      mappedItemFilter.isSelected = index === selectedItemFilterIndex;
+      return mappedItemFilter;
+    });
+
+    const mappedfilterDataSource = filterDataSource.map((item, index) => {
+      const mappedItem = Object.assign({}, item);
+      if (index === selectedFilterIndex) {
+        mappedItem.dataSource = mappedDataSource;
+      }
+      return mappedItem;
+    });
+
+    this.setState({
+      filterDataSource: mappedfilterDataSource
+    });
+  };
+
+  // ----------------------------------------------
+  // RENDER METHODS
+  // ----------------------------------------------
+
+  renderZoomInOutButtons = statisticsTableRowHeight => (
+    <View style={{ flexDirection: 'row', padding: 24, alignItems: 'center', backgroundColor: 'lightgray' }}>
       <TouchableOpacity
         style={{ padding: 16, backgroundColor: 'lightgray' }}
         onPress={this.onZoomOutPress}
@@ -67,22 +117,28 @@ class DemoExample extends Component {
       >
         <Text>Zoom In</Text>
       </TouchableOpacity>
-      <Text style={{ marginLeft: 24, fontSize: 16 }}>
-        Row Height: {this.state.statisticsTableRowHeight}
-      </Text>
-      <MonthPicker dateTime={subMonths(new Date(), 10)} onDateTimeChange={() => {}} />
+      <Text style={{ marginLeft: 24, fontSize: 16 }}>Row Height: {statisticsTableRowHeight}</Text>
+      <MonthPicker
+        containerStyle={{ zIndex: 999 }}
+        dateTime={subMonths(new Date(), 10)}
+        onDateTimeChange={() => {}}
+      />
     </View>
   );
 
   render() {
-    const { statisticsTableRowHeight, roleDataSource, groupColumnDataSource } = this.state;
+    const {
+      statisticsTableRowHeight,
+      roleDataSource,
+      groupColumnDataSource,
+      filterDataSource
+    } = this.state;
     return (
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <View style={{ flex: 1 }}>
-          {this.renderZoomInOutButtons()}
+          {this.renderZoomInOutButtons(statisticsTableRowHeight)}
           <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-            {/* <ScrollView horizontal showsHorizontalScrollIndicator={false}> */}
             <StatisticsTable
               rowHeight={statisticsTableRowHeight}
               roleDataSource={roleDataSource}
@@ -90,8 +146,13 @@ class DemoExample extends Component {
               onExpandedCollapsedButtonPress={item => {}}
               onSeeDetailsButtonPress={item => {}}
             />
-            {/* </ScrollView> */}
           </ScrollView>
+          <GroupDropDownFilter
+            containerStyle={{ position: 'absolute', top: 38, right: 24 }}
+            dataSource={filterDataSource}
+            onFilterSelect={this.onFilterSelect}
+            onFilterItemSelect={this.onFilterItemSelect}
+          />
         </View>
       </Fragment>
     );
