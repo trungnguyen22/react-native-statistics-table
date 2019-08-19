@@ -1,5 +1,6 @@
 # react-native-statistics-table
-A table for statistics report
+- A table for statistics report
+- Building only for specific purpose use-case
 
 <img src="https://github.com/trungnguyen22/react-native-statistics-table/blob/master/art/demo_ios.png" width="500" height="700" />
 <img src="https://github.com/trungnguyen22/react-native-statistics-table/blob/master/art/demo_android.png" width="500" height="700" />
