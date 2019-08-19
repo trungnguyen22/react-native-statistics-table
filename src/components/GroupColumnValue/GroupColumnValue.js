@@ -50,8 +50,15 @@ class GroupColumnValue extends PureComponent {
   // ----------------------------------------------------------
 
   renderChildHeaderTitle = (rowHeight, itemColumn) => {
+    const { childHeaderTitleContainerStyle } = this.props;
     return (
-      <View style={{ ...styles.childHeaderContainer, height: rowHeight / 2 }}>
+      <View
+        style={{
+          ...styles.childHeaderContainer,
+          ...childHeaderTitleContainerStyle,
+          height: rowHeight / 2
+        }}
+      >
         <Text
           style={{
             ...styles.childHeaderLabel,
@@ -66,6 +73,7 @@ class GroupColumnValue extends PureComponent {
   };
 
   renderColumnValue = (rowHeight, values, isHavingChildrenTitle) => {
+    const { valueCellContainerStyle } = this.props;
     const alignItemsStyle = isHavingChildrenTitle
       ? { alignItems: 'flex-end' }
       : { alignItems: 'center' };
@@ -75,7 +83,7 @@ class GroupColumnValue extends PureComponent {
         <ValueCell
           key={index}
           rowHeight={rowHeight}
-          containerStyle={{ backgroundColor, ...alignItemsStyle }}
+          containerStyle={{ backgroundColor, ...alignItemsStyle, ...valueCellContainerStyle }}
           cell={cell}
         />
       );
@@ -83,12 +91,20 @@ class GroupColumnValue extends PureComponent {
   };
 
   renderParentHeaderTitle = (rowHeight, dataSource, isHavingChildrenTitle) => {
+    const { headerTitleContainerStyle } = this.props;
     const height = isHavingChildrenTitle ? rowHeight / 2 : rowHeight;
     const borderBottomStyle = isHavingChildrenTitle
       ? {}
       : { borderBottomWidth: DEFAULT_BORDER_WIDTH, borderBottomColor: DEFAULT_BORDER_COLOR };
     return (
-      <View style={{ ...styles.groupHeaderContainer, height, ...borderBottomStyle }}>
+      <View
+        style={{
+          ...styles.groupHeaderContainer,
+          ...headerTitleContainerStyle,
+          height,
+          ...borderBottomStyle
+        }}
+      >
         <Text style={{ ...styles.parentHeaderLabel, fontSize: rowHeight / 5 }}>
           {dataSource.label}
         </Text>
@@ -126,7 +142,7 @@ class GroupColumnValue extends PureComponent {
           style={{
             height: index === 0 ? rowHeight + 0.75 : rowHeight,
             width: rowHeight / 3.5,
-            backgroundColor: backgroundColor
+            backgroundColor
           }}
         />
       );
@@ -163,8 +179,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    paddingLeft: 16,
-    paddingRight: 16
+    paddingLeft: 10,
+    paddingRight: 10
   },
   parentHeaderLabel: {
     opacity: 0.6,
@@ -185,8 +201,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-end',
     backgroundColor: 'white',
-    paddingLeft: 24,
-    paddingRight: 24
+    paddingLeft: 10,
+    paddingRight: 10
   },
   childHeaderLabel: {
     fontFamily: 'HelveticaNeue',

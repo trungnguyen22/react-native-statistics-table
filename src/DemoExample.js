@@ -145,10 +145,16 @@ class DemoExample extends Component {
           <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
             <StatisticsTable
               rowHeight={statisticsTableRowHeight}
+              childHeaderTitleContainerStyle={{ paddingLeft: 32, paddingRight: 32 }}
+              valueCellContainerStyle={{ paddingLeft: 32, paddingRight: 32 }}
               roleDataSource={roleDataSource}
               groupColumnDataSource={groupColumnDataSource}
-              onExpandedCollapsedButtonPress={item => {}}
-              onSeeDetailsButtonPress={item => {}}
+              onExpandedCollapsedButtonPress={(item, index) => {
+                // alert(index);
+              }}
+              onSeeDetailsButtonPress={(item, index) => {
+                // alert(index);
+              }}
             />
           </ScrollView>
           <GroupDropDownFilter

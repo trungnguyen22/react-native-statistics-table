@@ -8,8 +8,21 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class GroupColumnValueContainer extends PureComponent {
   renderGroupColumns = ({ item }) => {
-    const { rowHeight } = this.props;
-    return <GroupColumnValue rowHeight={rowHeight} dataSource={item} />;
+    const {
+      headerTitleContainerStyle,
+      childHeaderTitleContainerStyle,
+      valueCellContainerStyle,
+      rowHeight
+    } = this.props;
+    return (
+      <GroupColumnValue
+        rowHeight={rowHeight}
+        headerTitleContainerStyle={headerTitleContainerStyle}
+        childHeaderTitleContainerStyle={childHeaderTitleContainerStyle}
+        valueCellContainerStyle={valueCellContainerStyle}
+        dataSource={item}
+      />
+    );
   };
 
   render() {

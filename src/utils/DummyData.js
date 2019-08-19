@@ -219,7 +219,7 @@ export const DUMMY_DATA_GROUP_COLUMN = [
         iconType: 'up',
         values: [
           {
-            rawValue: '1,232,000,000,000',
+            rawValue: '1,200,000,000',
             calculatedValue: '',
             colorType: 'red',
             iconType: 'down',

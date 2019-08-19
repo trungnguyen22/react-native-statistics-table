@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     minHeight: DEFAULT_MIN_ROW_HEIGHT,
     justifyContent: 'center',
     alignItems: 'flex-end',
-    paddingLeft: 24,
-    paddingRight: 24
+    paddingLeft: 10,
+    paddingRight: 10
   },
   rawValueText: {
     fontSize: 16,

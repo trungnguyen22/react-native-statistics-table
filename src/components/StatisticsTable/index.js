@@ -46,18 +46,25 @@ DUMMY_DATA_GROUP_COLUMN = [
  */
 
 class StatisticsTable extends PureComponent {
-  onExpandedCollapsedButtonPress = item => {
+  onExpandedCollapsedButtonPress = (item, index) => {
     const { onExpandedCollapsedButtonPress } = this.props;
-    onExpandedCollapsedButtonPress(item);
+    onExpandedCollapsedButtonPress(item, index);
   };
 
-  onSeeDetailsButtonPress = item => {
+  onSeeDetailsButtonPress = (item, index) => {
     const { onSeeDetailsButtonPress } = this.props;
-    onSeeDetailsButtonPress(item);
+    onSeeDetailsButtonPress(item, index);
   };
 
   render() {
-    const { rowHeight = DEFAULT_ROW_HEIGHT, roleDataSource, groupColumnDataSource } = this.props;
+    const {
+      rowHeight = DEFAULT_ROW_HEIGHT,
+      headerTitleContainerStyle,
+      childHeaderTitleContainerStyle,
+      valueCellContainerStyle,
+      roleDataSource,
+      groupColumnDataSource
+    } = this.props;
     const calculatedRowHeight =
       rowHeight >= DEFAULT_MIN_ROW_HEIGHT ? rowHeight : DEFAULT_MIN_ROW_HEIGHT;
     return (
@@ -71,6 +78,9 @@ class StatisticsTable extends PureComponent {
         <GroupColumnValueContainer
           rowHeight={calculatedRowHeight}
           dataSource={groupColumnDataSource}
+          headerTitleContainerStyle={headerTitleContainerStyle}
+          childHeaderTitleContainerStyle={childHeaderTitleContainerStyle}
+          valueCellContainerStyle={valueCellContainerStyle}
         />
       </View>
     );

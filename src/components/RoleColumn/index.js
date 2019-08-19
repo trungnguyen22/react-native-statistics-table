@@ -14,7 +14,7 @@ export class RoleColumn extends PureComponent {
         backgroundColor={backgroundColor}
         item={item}
         onLeftIconPress={pressedItem => {
-          onExpandedCollapsedButtonPress(pressedItem);
+          onExpandedCollapsedButtonPress(pressedItem, index);
         }}
       />
     ) : (
@@ -23,7 +23,7 @@ export class RoleColumn extends PureComponent {
         backgroundColor={backgroundColor}
         item={item}
         onSeeDetailsButtonPress={pressedItem => {
-          onSeeDetailsButtonPress(pressedItem);
+          onSeeDetailsButtonPress(pressedItem, index);
         }}
       />
     );
