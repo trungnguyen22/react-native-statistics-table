@@ -49,7 +49,6 @@ class DropDownListItemFilter extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    width: 270,
     backgroundColor: 'white',
     paddingTop: 4,
     paddingBottom: 8,
